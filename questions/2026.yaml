@@ -14,7 +14,7 @@
 
 meta:
   year: 2026
-  players: 11   # Steve is locked at selection #1 by MARALAGO; he hosts
+  players: 11   # Shuldman holds selection #1 by MARALAGO; he hosts
   target_questions: 25
 
 questions:
@@ -160,38 +160,12 @@ questions:
       - answer: "15 yards"
 
   # ─── POP CULTURE / RANDOM ─────────────────────────────────────────────────
-  - category: popculture
-    question: "In 'The League,' what is the name of the trophy the winner receives?"
-    time: 15000
-    image_query: "fantasy football trophy gold"
-    choices:
-      - answer: "The Shiva"
-        correct: true
-      - answer: "The Sacko"
-      - answer: "The Ruxin"
-      - answer: "The Vinegar Strokes"
-
-  - category: popculture
-    question: "In 'The League,' what is the punishment title for finishing LAST?"
-    time: 15000
-    image_query: "last place ribbon humiliation"
-    choices:
-      - answer: "The Sacko"
-        correct: true
-      - answer: "The Shiva"
-      - answer: "The Taco"
-      - answer: "The Forever Unclean"
-
   - type: content
     title: "Halfway. Now it gets personal."
     description: "The rest of these are about US. Every blowup, every terrible pick, every championship. No Googling your way out of this one."
     image_query: "friends watching football together living room"
 
-  # ─── LEAGUE HISTORY ───────────────────────────────────────────────────────
-  # PLACEHOLDERS — awaiting Sleeper league ID. These get replaced with real
-  # league data (champions, records, blowouts, worst picks, trade history).
-  # Target: 8 questions. This is the heart of the quiz.
-  #
+  # ─── LEAGUE HISTORY (the heart of it - sourced from bylaws + vote record) ──
   # Question shapes that work well here:
   #   - "Who won the <year> championship?"                    (4 manager names)
   #   - "Highest single-week score in league history?"        (4 score ranges)
@@ -270,15 +244,15 @@ questions:
       - answer: "$250.00"
 
   - category: league
-    question: "Only two managers voted YES on ESPNNOW, the push to abandon Sleeper. Who?"
+    question: "Only two voted YES on ESPNNOW, the push to abandon Sleeper. Who?"
     time: 20000
     image_query: "clown emoji face paint"
     choices:
-      - answer: "Jack and Steve"
+      - answer: "Jack Meehan and Steve Shuldman"
         correct: true
-      - answer: "Jack and Clint"
-      - answer: "Steve and Megan"
-      - answer: "Jack and Tony"
+      - answer: "Jack Meehan and Clint Botway"
+      - answer: "Steve Erbrick and Megan McLoughlin"
+      - answer: "Jack Meehan and Tony DiNardo"
 
   - category: league
     question: "TWELVE (2024) expanded the league by adding which two managers?"
@@ -287,12 +261,12 @@ questions:
     choices:
       - answer: "Tony DiNardo and Joe Manganelli"
         correct: true
-      - answer: "Tony DiNardo and Tim"
-      - answer: "Joe Manganelli and Chilly"
-      - answer: "Mike and Scott"
+      - answer: "Tony DiNardo and Tim DeVaney"
+      - answer: "Joe Manganelli and Steve Erbrick"
+      - answer: "Michael Airosus and Scott Pender"
 
   - category: league
-    question: "Kofi and Jack bet on Jerome Powell's 2024 interest rate call. What was the wager?"
+    question: "Kofi and Jack bet on Jerome Powell's 2024 rate call. What was the wager?"
     time: 20000
     image_query: "federal reserve building columns"
     choices:
@@ -312,3 +286,80 @@ questions:
       - answer: "Pay two years of dues up front"
       - answer: "Win at least one playoff game"
       - answer: "Be approved unanimously"
+
+  - category: league
+    question: "The league voted on JJ's 2025 team name. Which one actually won?"
+    time: 20000
+    image_query: "ballot box voting paper"
+    choices:
+      - answer: "Eventually one of the guys sucks a dick"
+        correct: true
+      - answer: "Holetox"
+      - answer: "Strip club ceviche"
+      - answer: "Dick Dock Frequent Flyer"
+
+  - category: league
+    question: "Three of these were floated as the 2025 Ibanez team name. Which is fake?"
+    time: 20000
+    image_query: "waffle house diner sign night"
+    choices:
+      - answer: "Syrup Gargler"
+        correct: true
+      - answer: "Waffle Slut"
+      - answer: "Jameis Mary and Joseph"
+      - answer: "Hosting Hog on Close Friends"
+
+  - category: league
+    question: "ESPN+ would let you slot a RB, WR, TE, K, DST, or what else into superflex?"
+    time: 20000
+    image_query: "fast food breakfast sandwich coffee"
+    choices:
+      - answer: "A breakfast sandwich from Dunkin Donuts"
+        correct: true
+      - answer: "A head coach"
+      - answer: "A second defense"
+      - answer: "An individual defensive player"
+
+  - category: league
+    question: "Whose 2019 team was named Tomatoslap That Ass?"
+    time: 20000
+    image_query: "ripe tomatoes on vine"
+    choices:
+      - answer: "Michael Airosus"
+        correct: true
+      - answer: "Tim DeVaney"
+      - answer: "JJ Woolley"
+      - answer: "Clint Botway"
+
+  - category: league
+    question: "Which of these was NOT a real proposed team name for Kofi?"
+    time: 20000
+    image_query: "coffee cup latte art"
+    choices:
+      - answer: "Instant Kofi"
+        correct: true
+      - answer: "Ronco's Altar Boy"
+      - answer: "Dick Dock Daddy"
+      - answer: "Poopy Pants"
+
+  - category: league
+    question: "MARALAGO: Make A Really Awful Loser Attend Glorious what?"
+    time: 15000
+    image_query: "omelet and waffle breakfast"
+    choices:
+      - answer: "Omelets and Waffles"
+        correct: true
+      - answer: "Oatmeal and Waffles"
+      - answer: "Onion Rings and Waffles"
+      - answer: "Orange Juice and Waffles"
+
+  - category: league
+    question: "Who proposed Dick Dock Frequent Flyer as JJ's 2024 loser team name?"
+    time: 20000
+    image_query: "airport departure board terminal"
+    choices:
+      - answer: "Kofi White"
+        correct: true
+      - answer: "Jack Meehan"
+      - answer: "Clint Botway"
+      - answer: "Scott Pender"

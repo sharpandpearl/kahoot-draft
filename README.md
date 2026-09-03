@@ -7,8 +7,8 @@ Final leaderboard = selection order. No lottery, no appeals.
 
 ## Who picks when
 
-- **Steve picks first, by rule.** He completed the Waffle House challenge, so
-  MAGA MARALAGO awards him the first selection. He can take any slot he wants -
+- **Steve Shuldman picks first, by rule.** He completed the Waffle House
+  challenge, so MAGA MARALAGO awards him the first selection. He can take any slot he wants -
   including a middle one.
 - **The Kahoot decides selections 2 through 12** for the other eleven managers.
 
@@ -57,7 +57,7 @@ the web editor / game lobby before you start:
       their own phone instead of fighting screenshare lag. Without it, anyone on
       the video call is systematically a second behind, which is not a fair way
       to hand out the #1 pick.
-- [ ] **Steve should host, not play.** His slot is locked by MARALAGO, so his
+- [ ] **Shuldman should host, not play.** His slot is locked by MARALAGO, so his
       score is meaningless - and Kahoot's host runs the question screen without
       competing. The one person with nothing at stake is the natural host.
 - [ ] Confirm your plan allows **12 concurrent players**. Kahoot's free-tier caps
