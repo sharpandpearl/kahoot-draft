@@ -36,130 +36,6 @@ questions:
       - answer: "LEW-ess"
       - answer: "LAY-wess"
 
-  - category: lewes
-    question: "Lewes bills itself as 'The First Town in the First State.' What year was it founded?"
-    time: 15000
-    image_query: "Zwaanendael Museum Lewes Delaware"
-    choices:
-      - answer: "1631"
-        correct: true
-      - answer: "1607"
-      - answer: "1682"
-      - answer: "1704"
-
-  - category: lewes
-    question: "The Cape May-Lewes Ferry crosses which body of water?"
-    time: 10000
-    image_query: "Cape May Lewes Ferry boat"
-    choices:
-      - answer: "Delaware Bay"
-        correct: true
-      - answer: "Chesapeake Bay"
-      - answer: "Barnegat Bay"
-      - answer: "Long Island Sound"
-
-  - category: lewes
-    question: "Why is Delaware called 'The First State'?"
-    time: 15000
-    image_query: "United States Constitution document"
-    choices:
-      - answer: "First to ratify the U.S. Constitution"
-        correct: true
-      - answer: "First English colony in America"
-      - answer: "First state to abolish slavery"
-      - answer: "First to declare independence from Britain"
-
-  # ─── NFL / FANTASY TRIVIA ─────────────────────────────────────────────────
-  - category: nfl
-    question: "Who holds the NFL record for most rushing yards in a single season?"
-    time: 15000
-    image_query: "vintage NFL running back 1980s"
-    choices:
-      - answer: "Eric Dickerson (2,105 in 1984)"
-        correct: true
-      - answer: "Adrian Peterson (2,097 in 2012)"
-      - answer: "Derrick Henry (2,027 in 2020)"
-      - answer: "Barry Sanders (2,053 in 1997)"
-
-  - category: nfl
-    question: "Which team is the only one to finish a season undefeated AND win the Super Bowl?"
-    time: 10000
-    image_query: "1972 Miami Dolphins perfect season"
-    choices:
-      - answer: "1972 Miami Dolphins"
-        correct: true
-      - answer: "2007 New England Patriots"
-      - answer: "1985 Chicago Bears"
-      - answer: "1998 Denver Broncos"
-
-  - category: nfl
-    question: "In the 'Philly Special,' who CAUGHT the touchdown pass?"
-    time: 15000
-    image_query: "Super Bowl LII Philadelphia Eagles trophy"
-    choices:
-      - answer: "Nick Foles - the quarterback"
-        correct: true
-      - answer: "Zach Ertz"
-      - answer: "Alshon Jeffery"
-      - answer: "Corey Clement"
-
-  - category: nfl
-    question: "Most rushing yards by one player in a single NFL game?"
-    time: 15000
-    image_query: "running back breaking tackle stadium"
-    choices:
-      - answer: "Adrian Peterson - 296"
-        correct: true
-      - answer: "Jerome Harrison - 286"
-      - answer: "Walter Payton - 275"
-      - answer: "O.J. Simpson - 273"
-
-  - category: nfl
-    question: "'Mr. Irrelevant' is the nickname given to which NFL draft pick?"
-    time: 10000
-    image_query: "NFL draft stage podium"
-    choices:
-      - answer: "The very last pick of the draft"
-        correct: true
-      - answer: "The last pick of round one"
-      - answer: "The first undrafted free agent signed"
-      - answer: "The lowest-rated player invited to the combine"
-
-  # ─── NUMERIC ESTIMATION (levels the field - closest range wins) ────────────
-  - category: estimation
-    question: "How many total players are selected in a modern 7-round NFL Draft?"
-    time: 15000
-    image_query: "NFL draft war room boards"
-    choices:
-      - answer: "Around 255"
-        correct: true
-      - answer: "Around 180"
-      - answer: "Around 320"
-      - answer: "Around 400"
-
-  - category: estimation
-    question: "How many players are on an active NFL game-day roster?"
-    time: 15000
-    image_query: "NFL team sideline players"
-    choices:
-      - answer: "48"
-        correct: true
-      - answer: "40"
-      - answer: "53"
-      - answer: "60"
-
-  - category: estimation
-    question: "How far is it from the goal line to the back of the end zone?"
-    time: 10000
-    image_query: "football end zone painted turf"
-    choices:
-      - answer: "10 yards"
-        correct: true
-      - answer: "8 yards"
-      - answer: "12 yards"
-      - answer: "15 yards"
-
-  # ─── POP CULTURE / RANDOM ─────────────────────────────────────────────────
   - type: content
     title: "Halfway. Now it gets personal."
     description: "The rest of these are about US. Every blowup, every terrible pick, every championship. No Googling your way out of this one."
@@ -277,17 +153,6 @@ questions:
       - answer: "The loser does the Waffle House challenge"
 
   - category: league
-    question: "Under NAMASTE, what must a new member do before earning voting rights?"
-    time: 15000
-    image_query: "new member handshake welcome"
-    choices:
-      - answer: "Complete a full season in the league"
-        correct: true
-      - answer: "Pay two years of dues up front"
-      - answer: "Win at least one playoff game"
-      - answer: "Be approved unanimously"
-
-  - category: league
     question: "The league voted on JJ's 2025 team name. Which one actually won?"
     time: 20000
     image_query: "ballot box voting paper"
@@ -374,3 +239,161 @@ questions:
       - answer: "JJ Woolley - 1876 in 2025"
       - answer: "Kofi White - 1894 in 2021"
       - answer: "Steve Shuldman - 1849 in 2024"
+
+  # ─── 2026 OFFSEASON DRAMA ─────────────────────────────────────────────────
+  - category: nfl
+    question: "Aaron Donald unretired for 2026. What did he say got him thinking about it?"
+    time: 20000
+    image_query: "Los Angeles Rams stadium sunset"
+    choices:
+      - answer: "The Rams trading for Myles Garrett"
+        correct: true
+      - answer: "A call from Sean McVay at 2am"
+      - answer: "Watching the Super Bowl from his couch"
+      - answer: "His kids never seeing him play"
+
+  - category: nfl
+    question: "What is Aaron Donald's 2026 deal with the Rams worth in base salary?"
+    time: 20000
+    image_query: "sports contract signing pen paper"
+    choices:
+      - answer: "1 year, $20 million"
+        correct: true
+      - answer: "1 year, $12 million"
+      - answer: "2 years, $45 million"
+      - answer: "1 year, $35 million"
+
+  - category: nfl
+    question: "The Eagles traded A.J. Brown this offseason. To which team?"
+    time: 20000
+    image_query: "New England Patriots helmet"
+    choices:
+      - answer: "New England Patriots"
+        correct: true
+      - answer: "Pittsburgh Steelers"
+      - answer: "Las Vegas Raiders"
+      - answer: "Chicago Bears"
+
+  - category: nfl
+    question: "The Cardinals released Kyler Murray. Where did he sign for 2026?"
+    time: 20000
+    image_query: "Minnesota Vikings stadium purple"
+    choices:
+      - answer: "Minnesota Vikings"
+        correct: true
+      - answer: "Cleveland Browns"
+      - answer: "New York Giants"
+      - answer: "Indianapolis Colts"
+
+  - category: nfl
+    question: "Jaylen Waddle was traded out of Miami this offseason. To which team?"
+    time: 20000
+    image_query: "Denver Broncos mile high stadium"
+    choices:
+      - answer: "Denver Broncos"
+        correct: true
+      - answer: "Green Bay Packers"
+      - answer: "Los Angeles Chargers"
+      - answer: "Baltimore Ravens"
+
+  - category: nfl
+    question: "Who officiated Travis Kelce and Taylor Swift's wedding?"
+    time: 20000
+    image_query: "wedding ceremony rings altar"
+    choices:
+      - answer: "Adam Sandler"
+        correct: true
+      - answer: "Andy Reid"
+      - answer: "Jason Sudeikis"
+      - answer: "Hugh Grant"
+
+  - category: nfl
+    question: "Where did Travis Kelce and Taylor Swift get married in July 2026?"
+    time: 20000
+    image_query: "Madison Square Garden arena New York"
+    choices:
+      - answer: "Madison Square Garden"
+        correct: true
+      - answer: "Arrowhead Stadium"
+      - answer: "A vineyard in Rhode Island"
+      - answer: "Nashville's Ryman Auditorium"
+
+  - category: nfl
+    question: "The couple skipped bridesmaids and groomsmen. What was Jason Kelce's role?"
+    time: 20000
+    image_query: "two brothers suits formal wear"
+    choices:
+      - answer: "Best Man"
+        correct: true
+      - answer: "Officiant"
+      - answer: "Ring bearer"
+      - answer: "He gave the only toast"
+
+  # ─── FUN ESTIMATION (nobody has an edge here) ─────────────────────────────
+  - category: estimation
+    question: "Aaron Donald and Myles Garrett are now teammates. Combined listed weight?"
+    time: 20000
+    image_query: "gym weight plates barbell"
+    choices:
+      - answer: "552 lbs"
+        correct: true
+      - answer: "489 lbs"
+      - answer: "601 lbs"
+      - answer: "645 lbs"
+
+  - category: estimation
+    question: "How many career Pro Bowls do Donald and Garrett have between them?"
+    time: 20000
+    image_query: "pro bowl trophy award ceremony"
+    choices:
+      - answer: "17"
+        correct: true
+      - answer: "11"
+      - answer: "22"
+      - answer: "9"
+
+  # ─── MORE LEAGUE ──────────────────────────────────────────────────────────
+  - category: league
+    question: "Tony proposed a rule named after Travis Kelce's wife. What did T SWIFT do?"
+    time: 20000
+    image_query: "friendship bracelet beads concert"
+    choices:
+      - answer: "Cut a keeper's round value if he changed hands on waivers"
+        correct: true
+      - answer: "Ban trading with the reigning champion"
+      - answer: "Force the last place team to change their team name"
+      - answer: "Add a second superflex slot"
+
+  - category: league
+    question: "Who put up the most points in a season in league history?"
+    time: 20000
+    image_query: "fireworks celebration night sky"
+    choices:
+      - answer: "Clint Botway - 1967 in 2021, and he finished 7th"
+        correct: true
+      - answer: "Steve Erbrick - 1949 in 2021"
+      - answer: "Joe Manganelli - 1976 in 2025"
+      - answer: "Michael Airosus - 1892 in 2022"
+
+  - category: league
+    question: "What is the best regular season record anyone has posted?"
+    time: 20000
+    image_query: "winning streak scoreboard lights"
+    choices:
+      - answer: "Steve Erbrick, 12-2 in 2021"
+        correct: true
+      - answer: "Tim DeVaney, 11-3 in 2024"
+      - answer: "Jack Meehan, 13-1 in 2022"
+      - answer: "Kofi White, 12-2 in 2023"
+
+  - category: league
+    question: "SLEEPER (2025) locks the league onto Sleeper for how many seasons?"
+    time: 15000
+    image_query: "smartphone app icons screen"
+    choices:
+      - answer: "Five, through 2029"
+        correct: true
+      - answer: "Three, through 2027"
+      - answer: "Ten, through 2034"
+      - answer: "Forever, with no escape clause"
+
