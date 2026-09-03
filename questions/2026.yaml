@@ -1,0 +1,250 @@
+# Fantasy Football Draft Order Kahoot — 2026 question bank
+#
+# This file is the source of truth. Claude reads it and builds the Kahoot via MCP.
+# Edit data here, not in the Kahoot web editor, so next year starts from this.
+#
+# LIMITS (enforced by scripts/validate.mjs — Kahoot rejects anything over):
+#   question text  <= 120 chars
+#   answer text    <= 75 chars
+#   choices        <= 6 (use 4)
+#   time           one of 5000 10000 15000 20000 30000 45000 60000 90000 120000 180000 240000
+#
+# categories: league | nfl | estimation | lewes | popculture
+# verify: true  => I am not fully confident in this fact, CHECK IT before draft night
+
+meta:
+  year: 2026
+  players: 12
+  target_questions: 25
+
+questions:
+  # ─── OPENING ──────────────────────────────────────────────────────────────
+  - type: content
+    title: "Draft Order Kahoot 2026"
+    description: "25 questions. Final leaderboard IS the draft order, 1st through 12th. Points = right answer + speed. No takebacks, no appeals."
+    image_query: "fantasy football draft board"
+
+  # ─── LEWES, DE ────────────────────────────────────────────────────────────
+  - category: lewes
+    question: "How is 'Lewes' actually pronounced?"
+    time: 10000
+    image_query: "Lewes Delaware historic street"
+    choices:
+      - answer: "LOO-iss"
+        correct: true
+      - answer: "LOOZ"
+      - answer: "LEW-ess"
+      - answer: "LAY-wess"
+
+  - category: lewes
+    question: "Lewes bills itself as 'The First Town in the First State.' What year was it founded?"
+    time: 15000
+    image_query: "Zwaanendael Museum Lewes Delaware"
+    choices:
+      - answer: "1631"
+        correct: true
+      - answer: "1607"
+      - answer: "1682"
+      - answer: "1704"
+
+  - category: lewes
+    question: "Which country's settlers founded Lewes as the Zwaanendael colony?"
+    time: 10000
+    image_query: "Dutch colonial architecture Netherlands town hall"
+    choices:
+      - answer: "The Netherlands"
+        correct: true
+      - answer: "England"
+      - answer: "Sweden"
+      - answer: "France"
+
+  - category: lewes
+    question: "The Cape May-Lewes Ferry crosses which body of water?"
+    time: 10000
+    image_query: "Cape May Lewes Ferry boat"
+    choices:
+      - answer: "Delaware Bay"
+        correct: true
+      - answer: "Chesapeake Bay"
+      - answer: "Barnegat Bay"
+      - answer: "Long Island Sound"
+
+  - category: lewes
+    question: "Why is Delaware called 'The First State'?"
+    time: 15000
+    image_query: "United States Constitution document"
+    choices:
+      - answer: "First to ratify the U.S. Constitution"
+        correct: true
+      - answer: "First English colony in America"
+      - answer: "First state to abolish slavery"
+      - answer: "First to declare independence from Britain"
+
+  # ─── NFL / FANTASY TRIVIA ─────────────────────────────────────────────────
+  - category: nfl
+    question: "Who holds the NFL record for most rushing yards in a single season?"
+    time: 15000
+    image_query: "vintage NFL running back 1980s"
+    choices:
+      - answer: "Eric Dickerson (2,105 in 1984)"
+        correct: true
+      - answer: "Adrian Peterson (2,097 in 2012)"
+      - answer: "Derrick Henry (2,027 in 2020)"
+      - answer: "Barry Sanders (2,053 in 1997)"
+
+  - category: nfl
+    question: "Most receiving touchdowns in a single NFL season?"
+    time: 15000
+    image_query: "wide receiver touchdown catch end zone"
+    choices:
+      - answer: "Randy Moss - 23"
+        correct: true
+      - answer: "Jerry Rice - 22"
+      - answer: "Davante Adams - 18"
+      - answer: "Cooper Kupp - 16"
+
+  - category: nfl
+    question: "Which team is the only one to finish a season undefeated AND win the Super Bowl?"
+    time: 10000
+    image_query: "1972 Miami Dolphins perfect season"
+    choices:
+      - answer: "1972 Miami Dolphins"
+        correct: true
+      - answer: "2007 New England Patriots"
+      - answer: "1985 Chicago Bears"
+      - answer: "1998 Denver Broncos"
+
+  - category: nfl
+    question: "In the 'Philly Special,' who CAUGHT the touchdown pass?"
+    time: 15000
+    image_query: "Super Bowl LII Philadelphia Eagles trophy"
+    choices:
+      - answer: "Nick Foles - the quarterback"
+        correct: true
+      - answer: "Zach Ertz"
+      - answer: "Alshon Jeffery"
+      - answer: "Corey Clement"
+
+  - category: nfl
+    question: "Most rushing yards by one player in a single NFL game?"
+    time: 15000
+    image_query: "running back breaking tackle stadium"
+    choices:
+      - answer: "Adrian Peterson - 296"
+        correct: true
+      - answer: "Jerome Harrison - 286"
+      - answer: "Walter Payton - 275"
+      - answer: "O.J. Simpson - 273"
+
+  - category: nfl
+    question: "'Mr. Irrelevant' is the nickname given to which NFL draft pick?"
+    time: 10000
+    image_query: "NFL draft stage podium"
+    choices:
+      - answer: "The very last pick of the draft"
+        correct: true
+      - answer: "The last pick of round one"
+      - answer: "The first undrafted free agent signed"
+      - answer: "The lowest-rated player invited to the combine"
+
+  # ─── NUMERIC ESTIMATION (levels the field - closest range wins) ────────────
+  - category: estimation
+    question: "How many total players are selected in a modern 7-round NFL Draft?"
+    time: 15000
+    image_query: "NFL draft war room boards"
+    choices:
+      - answer: "Around 255"
+        correct: true
+      - answer: "Around 180"
+      - answer: "Around 320"
+      - answer: "Around 400"
+
+  - category: estimation
+    question: "An NFL football weighs about how much?"
+    time: 10000
+    image_query: "official NFL football on grass"
+    choices:
+      - answer: "About 15 ounces"
+        correct: true
+      - answer: "About 10 ounces"
+      - answer: "About 22 ounces"
+      - answer: "About 32 ounces"
+
+  - category: estimation
+    question: "How many players are on an active NFL game-day roster?"
+    time: 15000
+    image_query: "NFL team sideline players"
+    choices:
+      - answer: "48"
+        correct: true
+      - answer: "40"
+      - answer: "53"
+      - answer: "60"
+
+  - category: estimation
+    question: "How far is it from the goal line to the back of the end zone?"
+    time: 10000
+    image_query: "football end zone painted turf"
+    choices:
+      - answer: "10 yards"
+        correct: true
+      - answer: "8 yards"
+      - answer: "12 yards"
+      - answer: "15 yards"
+
+  # ─── POP CULTURE / RANDOM ─────────────────────────────────────────────────
+  - category: popculture
+    question: "In 'The League,' what is the name of the trophy the winner receives?"
+    time: 15000
+    image_query: "fantasy football trophy gold"
+    choices:
+      - answer: "The Shiva"
+        correct: true
+      - answer: "The Sacko"
+      - answer: "The Ruxin"
+      - answer: "The Vinegar Strokes"
+
+  - category: popculture
+    question: "In 'The League,' what is the punishment title for finishing LAST?"
+    time: 15000
+    image_query: "last place ribbon humiliation"
+    choices:
+      - answer: "The Sacko"
+        correct: true
+      - answer: "The Shiva"
+      - answer: "The Taco"
+      - answer: "The Forever Unclean"
+
+  - category: popculture
+    question: "Which movie features a fictional draft-day trade for the Cleveland Browns?"
+    time: 10000
+    image_query: "movie theater popcorn cinema"
+    choices:
+      - answer: "Draft Day"
+        correct: true
+      - answer: "Any Given Sunday"
+      - answer: "The Replacements"
+      - answer: "Jerry Maguire"
+
+  # ─── MIDPOINT ─────────────────────────────────────────────────────────────
+  - type: content
+    title: "Halfway. Now it gets personal."
+    description: "The rest of these are about US. Every blowup, every terrible pick, every championship. No Googling your way out of this one."
+    image_query: "friends watching football together living room"
+
+  # ─── LEAGUE HISTORY ───────────────────────────────────────────────────────
+  # PLACEHOLDERS — awaiting Sleeper league ID. These get replaced with real
+  # league data (champions, records, blowouts, worst picks, trade history).
+  # Target: 8 questions. This is the heart of the quiz.
+  #
+  # Question shapes that work well here:
+  #   - "Who won the <year> championship?"                    (4 manager names)
+  #   - "Highest single-week score in league history?"        (4 score ranges)
+  #   - "Who has the most all-time regular season wins?"      (4 manager names)
+  #   - "Which manager has made the playoffs the most times?" (4 manager names)
+  #   - "Who drafted <notorious bust> in round 1?"            (4 manager names)
+  #   - "Largest margin of victory ever recorded?"            (4 point ranges)
+  #   - "Who has the most all-time trades?"                   (4 manager names)
+  #   - "Which manager has NEVER made the playoffs?"          (4 manager names)
+  #
+  # TODO: populate from Sleeper API
