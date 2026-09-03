@@ -83,6 +83,31 @@
            padding:10px;display:flex;gap:8px;overflow-x:auto;justify-content:center}
   .hostbar button{font-size:14px;padding:10px 14px;min-height:44px;white-space:nowrap}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+  /* ---- TV MODE: laptop screenshared to a television, read from a couch ---- */
+  body.tv .wrap{max-width:1400px;padding:28px 40px 110px}
+  body.tv .brand{font-size:34px}
+  body.tv .rnd{font-size:20px}
+  body.tv .eyebrow{font-size:17px;letter-spacing:.2em}
+  body.tv .prompt{font-size:clamp(38px,5.2vw,72px);line-height:1.1}
+  body.tv .panel{padding:28px;gap:20px}
+  body.tv .note{font-size:22px}
+  body.tv .big{font-size:38px}
+  body.tv .chip{font-size:20px;padding:8px 16px}
+  body.tv .card{font-size:30px;padding:20px 24px;gap:20px;align-items:center}
+  body.tv .votes{font-size:44px;min-width:64px;text-align:right}
+  body.tv .author{font-size:20px}
+  body.tv .row{padding:16px 22px}
+  body.tv .row .pos{font-size:24px;min-width:52px}
+  body.tv .row .nm{font-size:30px}
+  body.tv .row .pts{font-size:30px}
+  body.tv .hostbar button{font-size:19px;padding:14px 22px;min-height:56px}
+  /* two columns once there are a dozen answers to show at once */
+  body.tv .stack.split{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:900px){body.tv .stack.split{grid-template-columns:1fr}}
+  .joinurl{font-family:var(--mono);color:var(--amber);font-size:clamp(24px,3.4vw,44px);
+           word-break:break-all;line-height:1.25}
+  .waiting{font-family:var(--mono);color:var(--muted);font-size:20px}
 </style>
 </head>
 <body>
@@ -99,7 +124,11 @@
 var MEMBERS = ["Kofi White","Clint Botway","Michael Airosus","Steven Shuldman","Jack Meehan",
   "JJ Woolley","Scott Pender","Tim DeVaney","Megan McLoughlin","Steven Erbrick",
   "Joe Mangenelli","Tony DiNardo"];
-var HOSTKEY = new URLSearchParams(location.search).get("host");
+var QS = new URLSearchParams(location.search);
+var HOSTKEY = QS.get("host");
+var TV = QS.has("tv");            // laptop -> television: read-only big screen
+if (TV) document.body.classList.add("tv");
+var JOINURL = location.origin;
 var app = document.getElementById("app");
 var hostbar = document.getElementById("hostbar");
 var me = { id: localStorage.getItem("pid"), name: localStorage.getItem("pname") };
@@ -135,12 +164,75 @@ function chipsFor(s, ids){
   }).join("") + '</div>';
 }
 
+// The television. Never shows an input, never shows an unrevealed author,
+// and always shows the join URL until everyone is in.
+function renderTV(s, total){
+  function board(){
+    return s.players.map(function(p){ return {id:p.id,name:p.name,pts:s.scores[p.id]||0}; })
+      .sort(function(a,b){ return b.pts-a.pts; });
+  }
+  function standings(list, offset, locked){
+    return '<div class="stack">'
+      + (locked ? '<div class="row locked"><div class="who"><span class="pos">01</span>'
+          + '<span class="nm">'+esc(locked.name)+'</span></div>'
+          + '<span class="pts">Waffle House</span></div>' : '')
+      + list.map(function(p,ix){
+          return '<div class="row"><div class="who"><span class="pos">'
+            + String(ix+offset).padStart(2,"0")+'</span><span class="nm">'+esc(p.name)+'</span></div>'
+            + '<span class="pts">'+p.pts+'</span></div>';
+        }).join("") + '</div>';
+  }
+
+  if (s.phase === "lobby")
+    return '<div class="panel"><div class="eyebrow">Join on your phone</div>'
+      + '<div class="joinurl">'+esc(JOINURL.replace(/^https?:\/\//,""))+'</div>'
+      + '<div class="note">Open it, tap your name. '+total+' of 12 in.</div>'
+      + chipsFor(s, s.players.map(function(p){return p.id;})) + '</div>';
+
+  if (s.phase === "write")
+    return '<div class="panel"><div class="eyebrow">Round '+(s.round+1)+' of '+s.totalRounds+'</div>'
+      + '<div class="prompt">'+esc(s.prompt)+'</div>'
+      + '<div class="waiting">'+s.submitted.length+' of '+total+' answers in</div>'
+      + chipsFor(s, s.submitted) + '</div>';
+
+  if (s.phase === "vote")
+    return '<div class="panel"><div class="eyebrow">Vote on your phone</div>'
+      + '<div class="prompt">'+esc(s.prompt)+'</div>'
+      + '<div class="stack split">' + (s.cards||[]).map(function(c){
+          return '<div class="card"><span>'+esc(c.text)+'</span></div>'; }).join("")
+      + '</div><div class="waiting">'+s.voted.length+' of '+total+' voted</div>'
+      + chipsFor(s, s.voted) + '</div>';
+
+  if (s.phase === "scores")
+    return '<div class="panel"><div class="eyebrow">Round '+(s.round+1)+' results</div>'
+      + '<div class="prompt">'+esc(s.prompt)+'</div>'
+      + '<div class="stack">' + (s.cards||[]).map(function(c){
+          return '<div class="card"><span class="votes">'+c.votes+'</span><span>'+esc(c.text)
+            + '<br><span class="author">'+esc(c.author)+'</span></span></div>'; }).join("")
+      + '</div></div>'
+      + '<div class="panel"><div class="eyebrow">Standings</div>'
+      + standings(board(), 1, null) + '</div>';
+
+  if (s.phase === "final"){
+    var b = board(), locked = null, rest = [];
+    for (var k=0;k<b.length;k++){
+      if (!locked && /shuldman/i.test(b[k].name)) locked = b[k]; else rest.push(b[k]);
+    }
+    return '<div class="panel"><div class="eyebrow">Final &middot; selection order</div>'
+      + '<div class="note">The order you pick your draft slot. Not the slot itself.</div>'
+      + standings(rest, locked?2:1, locked) + '</div>';
+  }
+  return '<div class="panel"><div class="note">&hellip;</div></div>';
+}
+
 function render(s){
   var total = s.players.length, i;
   document.getElementById("rnd").textContent =
     s.phase === "lobby" ? total + " joined"
     : s.phase === "final" ? "Final"
     : "Round " + (s.round+1) + " / " + s.totalRounds;
+
+  if (TV) return renderTV(s, total);
 
   var seated = false;
   for (i=0;i<s.players.length;i++) if (s.players[i].id === me.id) seated = true;
