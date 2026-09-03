@@ -11,9 +11,12 @@ export const PROMPTS = [
   "Predict the exact moment tonight's draft goes off the rails.",
 ];
 
+export const WRITE_MS = 30000;   // 30s to answer, enforced server-side
+
 const BLANK = {
   phase: "lobby",   // lobby | write | vote | scores | final
   round: 0,
+  deadline: 0,      // epoch ms; answers close after this (+ grace)
   players: {},      // id -> {name, joined}
   answers: {},      // "r0" -> { playerId: text }
   votes: {},        // "r0" -> { voterId: [playerId, ...] }
@@ -26,7 +29,14 @@ export class Game {
   }
 
   async load() {
-    if (!this.s) this.s = (await this.state.storage.get("s")) || structuredClone(BLANK);
+    if (!this.s) {
+      const stored = await this.state.storage.get("s");
+      // Backfill any field added after this game was first written; without
+      // this, arithmetic on a missing field yields NaN and serialises to null.
+      this.s = stored ? { ...structuredClone(BLANK), ...stored } : structuredClone(BLANK);
+    }
+    // A game already mid-round when the timer shipped has no deadline yet.
+    if (this.s.phase === "write" && !this.s.deadline) this.s.deadline = Date.now() + WRITE_MS;
     return this.s;
   }
   async save() { await this.state.storage.put("s", this.s); }
@@ -63,6 +73,8 @@ export class Game {
     if (path === "/answer") {
       const { id, text } = body;
       if (this.s.phase !== "write" || !this.s.players[id]) return json({ error: "not accepting" }, 400);
+      // 3s grace covers the round trip of a client auto-submitting on zero
+      if (this.s.deadline && Date.now() > this.s.deadline + 3000) return json({ error: "too late" }, 400);
       const key = "r" + this.s.round;
       (this.s.answers[key] ||= {})[id] = String(text || "").trim().slice(0, 200);
       await this.save();
@@ -82,12 +94,12 @@ export class Game {
     if (path === "/host") {
       if (body.key !== "roofcondom") return json({ error: "nope" }, 403);
       const a = body.action;
-      if (a === "start")  { this.s.phase = "write"; }
+      if (a === "start")  { this.s.phase = "write"; this.s.deadline = Date.now() + WRITE_MS; }
       if (a === "vote")   { this.s.phase = "vote"; }
       if (a === "scores") { this.s.phase = "scores"; }
       if (a === "next")   {
         if (this.s.round + 1 >= PROMPTS.length) { this.s.phase = "final"; }
-        else { this.s.round += 1; this.s.phase = "write"; }
+        else { this.s.round += 1; this.s.phase = "write"; this.s.deadline = Date.now() + WRITE_MS; }
       }
       if (a === "final")  { this.s.phase = "final"; }
       if (a === "reset")  { this.s = structuredClone(BLANK); }
@@ -111,6 +123,8 @@ export class Game {
         voted: Object.keys(votes),
         you: { answered: answers[id] !== undefined, voted: votes[id] !== undefined, text: answers[id] || "" },
         scores: this.scores(),
+        // ms left, resynced on every poll so client clock skew never matters
+        remaining: this.s.phase === "write" ? Math.max(0, (this.s.deadline || 0) - Date.now()) : 0,
       };
       // Answers go out anonymous during voting; authors revealed at scores.
       if (this.s.phase === "vote") {

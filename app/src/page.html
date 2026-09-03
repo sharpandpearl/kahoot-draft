@@ -12,7 +12,7 @@
     --ink:#14161C; --panel:#1D2029; --panel2:#252936; --line:#333949;
     --chalk:#F2EFE6; --muted:#8D94A6;
     --amber:#FFC72C; --amber-dim:#7A5F14;
-    --ok:#4E9E6A;
+    --ibanez:#E0564C; --ok:#4E9E6A;
     --display:'Oswald','Arial Narrow',sans-serif;
     --body:'IBM Plex Sans',ui-sans-serif,system-ui,sans-serif;
     --mono:'IBM Plex Mono',ui-monospace,monospace;
@@ -73,6 +73,13 @@
   .chip{font-family:var(--mono);font-size:12px;padding:4px 9px;border-radius:999px;
         border:1px solid var(--line);color:var(--muted)}
   .chip.done{border-color:var(--ok);color:var(--ok)}
+
+  .timerbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .clock{font-family:var(--mono);font-weight:600;font-size:30px;color:var(--amber);
+         font-variant-numeric:tabular-nums;line-height:1;min-width:2ch;text-align:right}
+  .clock.urgent{color:var(--ibanez)}
+  body.tv .clock{font-size:76px}
+  body.tv .timerbar{border-bottom:1px solid var(--line);padding-bottom:14px}
 
   .note{color:var(--muted);font-size:14px}
   .big{font-family:var(--display);font-size:20px;font-weight:500;letter-spacing:.02em}
@@ -190,7 +197,9 @@ function renderTV(s, total){
       + chipsFor(s, s.players.map(function(p){return p.id;})) + '</div>';
 
   if (s.phase === "write")
-    return '<div class="panel"><div class="eyebrow">Round '+(s.round+1)+' of '+s.totalRounds+'</div>'
+    return '<div class="panel">'
+      + '<div class="timerbar"><span class="eyebrow">Round '+(s.round+1)+' of '+s.totalRounds+'</span>'
+      + '<span class="clock" id="clock">30</span></div>'
       + '<div class="prompt">'+esc(s.prompt)+'</div>'
       + '<div class="waiting">'+s.submitted.length+' of '+total+' answers in</div>'
       + chipsFor(s, s.submitted) + '</div>';
@@ -250,12 +259,13 @@ function render(s){
       return '<div class="panel"><div class="eyebrow">Locked in</div>'
         + '<div class="prompt">'+esc(s.prompt)+'</div>'
         + '<div class="row"><div class="who"><span class="nm">'+esc(s.you.text)+'</span></div></div>'
-        + '<div class="note">Waiting for the rest.</div>' + chipsFor(s, s.submitted) + '</div>';
-    return '<div class="panel"><div class="eyebrow">Round '+(s.round+1)+' &middot; your answer</div>'
+        + '<div class="note">Waiting for the rest.</div></div>';
+    return '<div class="panel">'
+      + '<div class="timerbar"><span class="eyebrow">Round '+(s.round+1)+' &middot; your answer</span>'
+      + '<span class="clock" id="clock">30</span></div>'
       + '<div class="prompt">'+esc(s.prompt)+'</div>'
       + '<textarea id="ans" maxlength="200" placeholder="Make it count."></textarea>'
-      + '<button class="primary" id="send">Submit answer</button>'
-      + '<div class="note">'+s.submitted.length+' of '+total+' in.</div></div>';
+      + '<button class="primary" id="send">Submit answer</button></div>';
   }
 
   if (s.phase === "vote"){
@@ -327,20 +337,64 @@ function hostControls(s){
   if (HOSTKEY !== "roofcondom"){ hostbar.hidden = true; return; }
   hostbar.hidden = false;
   function b(a,l){ return '<button data-host="'+a+'">'+l+'</button>'; }
-  hostbar.innerHTML =
+  var main =
       s.phase==="lobby"  ? b("start","Start round 1")
     : s.phase==="write"  ? b("vote","Open voting")
     : s.phase==="vote"   ? b("scores","Show results")
     : s.phase==="scores" ? b("next","Next round") + b("final","End &amp; final order")
-    : b("reset","Reset game");
+    : "";
+  // Reset stays reachable from every phase - a practice game has to be
+  // clearable before the real one, and confirm() guards a misclick.
+  hostbar.innerHTML = main + b("reset","Reset");
 }
+
+// Countdown lives OUTSIDE render(): rewriting innerHTML every second would
+// destroy the textarea a player is typing into. Only the clock's text changes.
+var deadlineAt = 0, autoSent = false;
+
+function paintClock(){
+  var el = document.getElementById("clock");
+  if (!el || !deadlineAt) return;
+  var left = Math.max(0, Math.ceil((deadlineAt - Date.now())/1000));
+  el.textContent = left;
+  el.classList.toggle("urgent", left <= 10);
+  if (left === 0 && !autoSent){
+    var ta = document.getElementById("ans");
+    var v = ta ? ta.value.trim() : "";
+    autoSent = true;
+    if (v) api("/answer", { id: me.id, text: v }).then(function(){ last=""; tick(); });
+  }
+}
+setInterval(paintClock, 250);
 
 function tick(){
   if (busy) return Promise.resolve();
   return api("/state?id=" + encodeURIComponent(me.id || "")).then(function(s){
     hostControls(s);
-    var sig = JSON.stringify([s.phase,s.round,s.submitted,s.voted,s.players.length,s.you,picks,s.cards]);
-    if (sig !== last){ last = sig; app.innerHTML = render(s); }
+    if (s.phase === "write"){ deadlineAt = Date.now() + s.remaining; }
+    else { deadlineAt = 0; autoSent = false; }
+
+    // A player's in-progress typing must survive any re-render, so the
+    // signature deliberately omits other people's submissions on a phone.
+    var sig = TV
+      ? JSON.stringify([s.phase,s.round,s.submitted,s.voted,s.players.length,s.cards,s.scores])
+      : JSON.stringify([s.phase,s.round,s.players.length,s.you,picks,
+                        s.phase==="vote" && !s.you.voted ? null : s.voted,
+                        s.phase==="write" ? null : s.cards]);
+
+    if (sig !== last){
+      var ta = document.getElementById("ans");
+      var keep = ta ? ta.value : null;
+      var focused = ta && document.activeElement === ta;
+      var caret = focused ? ta.selectionStart : 0;
+      last = sig; app.innerHTML = render(s);
+      var ta2 = document.getElementById("ans");
+      if (ta2 && keep !== null){
+        ta2.value = keep;
+        if (focused){ ta2.focus(); try{ ta2.setSelectionRange(caret,caret); }catch(e){} }
+      }
+      paintClock();
+    }
   }).catch(function(){ /* transient, next tick retries */ });
 }
 
@@ -349,6 +403,8 @@ document.addEventListener("click", function(e){
   if (!t) return;
   if (t.dataset.name) return join(t.dataset.name);
   if (t.dataset.host){
+    if (t.dataset.host === "reset" &&
+        !confirm("Wipe the game? Clears every player and all scores.")) return;
     busy = true;
     return api("/host", { key: HOSTKEY, action: t.dataset.host }).then(function(){
       picks = []; busy = false; last = ""; tick(); });
