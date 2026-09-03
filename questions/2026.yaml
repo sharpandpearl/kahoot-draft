@@ -363,3 +363,14 @@ questions:
       - answer: "Jack Meehan"
       - answer: "Clint Botway"
       - answer: "Scott Pender"
+
+  - category: league
+    question: "Who holds the record for most points scored AGAINST them in a season?"
+    time: 20000
+    image_query: "scoreboard numbers stadium night"
+    choices:
+      - answer: "Megan McLoughlin - 1951 in 2021"
+        correct: true
+      - answer: "JJ Woolley - 1876 in 2025"
+      - answer: "Kofi White - 1894 in 2021"
+      - answer: "Steve Shuldman - 1849 in 2024"
