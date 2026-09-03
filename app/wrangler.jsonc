@@ -1,0 +1,12 @@
+{
+  "name": "lehigh-1aa-quiplash",
+  "main": "src/index.js",
+  "compatibility_date": "2025-08-01",
+  "rules": [{ "type": "Text", "globs": ["**/*.html"], "fallthrough": true }],
+  "durable_objects": {
+    "bindings": [{ "name": "GAME", "class_name": "Game" }]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["Game"] }
+  ]
+}
