@@ -14,14 +14,14 @@
 
 meta:
   year: 2026
-  players: 12
+  players: 11   # Steve is locked at selection #1 by MARALAGO; he hosts
   target_questions: 25
 
 questions:
   # ─── OPENING ──────────────────────────────────────────────────────────────
   - type: content
     title: "Draft Order Kahoot 2026"
-    description: "25 questions. Final leaderboard IS the draft order, 1st through 12th. Points = right answer + speed. No takebacks, no appeals."
+    description: "25 questions. Final leaderboard = the order you PICK your draft slot. Steve picks first (he earned it at Waffle House). Everyone else, this is for selections 2-12."
     image_query: "fantasy football draft board"
 
   # ─── LEWES, DE ────────────────────────────────────────────────────────────
@@ -46,17 +46,6 @@ questions:
       - answer: "1607"
       - answer: "1682"
       - answer: "1704"
-
-  - category: lewes
-    question: "Which country's settlers founded Lewes as the Zwaanendael colony?"
-    time: 10000
-    image_query: "Dutch colonial architecture Netherlands town hall"
-    choices:
-      - answer: "The Netherlands"
-        correct: true
-      - answer: "England"
-      - answer: "Sweden"
-      - answer: "France"
 
   - category: lewes
     question: "The Cape May-Lewes Ferry crosses which body of water?"
@@ -91,17 +80,6 @@ questions:
       - answer: "Adrian Peterson (2,097 in 2012)"
       - answer: "Derrick Henry (2,027 in 2020)"
       - answer: "Barry Sanders (2,053 in 1997)"
-
-  - category: nfl
-    question: "Most receiving touchdowns in a single NFL season?"
-    time: 15000
-    image_query: "wide receiver touchdown catch end zone"
-    choices:
-      - answer: "Randy Moss - 23"
-        correct: true
-      - answer: "Jerry Rice - 22"
-      - answer: "Davante Adams - 18"
-      - answer: "Cooper Kupp - 16"
 
   - category: nfl
     question: "Which team is the only one to finish a season undefeated AND win the Super Bowl?"
@@ -160,17 +138,6 @@ questions:
       - answer: "Around 400"
 
   - category: estimation
-    question: "An NFL football weighs about how much?"
-    time: 10000
-    image_query: "official NFL football on grass"
-    choices:
-      - answer: "About 15 ounces"
-        correct: true
-      - answer: "About 10 ounces"
-      - answer: "About 22 ounces"
-      - answer: "About 32 ounces"
-
-  - category: estimation
     question: "How many players are on an active NFL game-day roster?"
     time: 15000
     image_query: "NFL team sideline players"
@@ -215,18 +182,6 @@ questions:
       - answer: "The Taco"
       - answer: "The Forever Unclean"
 
-  - category: popculture
-    question: "Which movie features a fictional draft-day trade for the Cleveland Browns?"
-    time: 10000
-    image_query: "movie theater popcorn cinema"
-    choices:
-      - answer: "Draft Day"
-        correct: true
-      - answer: "Any Given Sunday"
-      - answer: "The Replacements"
-      - answer: "Jerry Maguire"
-
-  # ─── MIDPOINT ─────────────────────────────────────────────────────────────
   - type: content
     title: "Halfway. Now it gets personal."
     description: "The rest of these are about US. Every blowup, every terrible pick, every championship. No Googling your way out of this one."
@@ -247,4 +202,113 @@ questions:
   #   - "Who has the most all-time trades?"                   (4 manager names)
   #   - "Which manager has NEVER made the playoffs?"          (4 manager names)
   #
-  # TODO: populate from Sleeper API
+  - category: league
+    question: "DROPIT (2024) requires what to be present at the live draft?"
+    time: 15000
+    image_query: "backyard swimming pool party"
+    choices:
+      - answer: "A pool or a hot tub"
+        correct: true
+      - answer: "A grill and at least one cooler"
+      - answer: "A physical draft board"
+      - answer: "A commissioner-approved projector"
+
+  - category: league
+    question: "Under IBANEZ'S SHAME, what happens if you finish last three seasons in a row?"
+    time: 15000
+    image_query: "tattoo parlor neon sign"
+    choices:
+      - answer: "You get a tattoo of Dan Ibanez's face"
+        correct: true
+      - answer: "You are expelled from the league"
+        correct: false
+      - answer: "You forfeit your first round pick forever"
+      - answer: "You pay double dues for a season"
+
+  - category: league
+    question: "In the Waffle House challenge, eating one breakfast item shaves how much off the clock?"
+    time: 10000
+    image_query: "waffle breakfast diner plate"
+    choices:
+      - answer: "One hour"
+        correct: true
+      - answer: "Thirty minutes"
+      - answer: "Two hours"
+      - answer: "Fifteen minutes"
+
+  - category: league
+    question: "What is the league championship trophy called?"
+    time: 10000
+    image_query: "championship trophy silver cup"
+    choices:
+      - answer: "The Roof Condom"
+        correct: true
+      - answer: "The Ibanez"
+      - answer: "The Shiva"
+      - answer: "The Golden Waffle"
+
+  - category: league
+    question: "Under THIRD, what does the third place finisher actually receive?"
+    time: 15000
+    image_query: "box of glazed donuts"
+    choices:
+      - answer: "A box of donuts bought by the league winner"
+        correct: true
+      - answer: "Their buy-in returned"
+      - answer: "Double their money"
+      - answer: "Nothing at all"
+
+  - category: league
+    question: "What are the current league dues, set in 2024?"
+    time: 15000
+    image_query: "stack of us dollar bills cash"
+    choices:
+      - answer: "$205.80"
+        correct: true
+      - answer: "$200.00"
+      - answer: "$215.40"
+      - answer: "$250.00"
+
+  - category: league
+    question: "Only two managers voted YES on ESPNNOW, the push to abandon Sleeper. Who?"
+    time: 20000
+    image_query: "clown emoji face paint"
+    choices:
+      - answer: "Jack and Steve"
+        correct: true
+      - answer: "Jack and Clint"
+      - answer: "Steve and Megan"
+      - answer: "Jack and Tony"
+
+  - category: league
+    question: "TWELVE (2024) expanded the league by adding which two managers?"
+    time: 20000
+    image_query: "two empty stadium seats"
+    choices:
+      - answer: "Tony DiNardo and Joe Manganelli"
+        correct: true
+      - answer: "Tony DiNardo and Tim"
+      - answer: "Joe Manganelli and Chilly"
+      - answer: "Mike and Scott"
+
+  - category: league
+    question: "Kofi and Jack bet on Jerome Powell's 2024 interest rate call. What was the wager?"
+    time: 20000
+    image_query: "federal reserve building columns"
+    choices:
+      - answer: "A 6th and 9th round pick swap"
+        correct: true
+      - answer: "A 1st round pick swap"
+      - answer: "Double league dues"
+      - answer: "The loser does the Waffle House challenge"
+
+  - category: league
+    question: "Under NAMASTE, what must a new member do before earning voting rights?"
+    time: 15000
+    image_query: "new member handshake welcome"
+    choices:
+      - answer: "Complete a full season in the league"
+        correct: true
+      - answer: "Pay two years of dues up front"
+      - answer: "Win at least one playoff game"
+      - answer: "Be approved unanimously"

@@ -1,7 +1,21 @@
 # Draft Order Kahoot
 
-A Kahoot quiz that decides our fantasy football draft order. Final leaderboard =
-draft order, 1st through 12th. No lottery, no appeals.
+A Kahoot quiz that decides our **draft order selection order** - the order in
+which managers choose their draft slot. Not the draft order itself.
+
+Final leaderboard = selection order. No lottery, no appeals.
+
+## Who picks when
+
+- **Steve picks first, by rule.** He completed the Waffle House challenge, so
+  MAGA MARALAGO awards him the first selection. He can take any slot he wants -
+  including a middle one.
+- **The Kahoot decides selections 2 through 12** for the other eleven managers.
+
+Worth saying out loud before the quiz: slot 1 is not automatically the prize.
+If you are carrying two keepers at first- and second-round cost, pick 1.01 is
+nearly worthless and a middle slot with better snake position is the real win.
+That is the whole reason this is a selection order.
 
 ## How it works
 
@@ -43,6 +57,9 @@ the web editor / game lobby before you start:
       their own phone instead of fighting screenshare lag. Without it, anyone on
       the video call is systematically a second behind, which is not a fair way
       to hand out the #1 pick.
+- [ ] **Steve should host, not play.** His slot is locked by MARALAGO, so his
+      score is meaningless - and Kahoot's host runs the question screen without
+      competing. The one person with nothing at stake is the natural host.
 - [ ] Confirm your plan allows **12 concurrent players**. Kahoot's free-tier caps
       have moved around; find out now, not at kickoff.
 - [ ] Announce up front that **speed is the tiebreaker**. Two people who both know
@@ -51,6 +68,8 @@ the web editor / game lobby before you start:
 ## Rules we agreed on
 
 - 25 questions, ~15 minutes.
-- Final leaderboard is the draft order. It is binding.
+- Final leaderboard is the selection order for picks 2-12. It is binding.
+- Proposed by the reigning champion under MAD DIC DOC. Stands unless a majority
+  overrules within 48 hours of the WhatsApp proposal.
 - Phones are allowed because the questions are built to be Google-proof —
   league history and local trivia can't be looked up in 15 seconds.
