@@ -140,6 +140,7 @@ var app = document.getElementById("app");
 var hostbar = document.getElementById("hostbar");
 var me = { id: localStorage.getItem("pid"), name: localStorage.getItem("pname") };
 var picks = [], last = "", busy = false;
+var entryOrder = [], entryMode = false;   // host: entering Kahoot placements
 
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
   return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
@@ -169,6 +170,49 @@ function chipsFor(s, ids){
   return '<div class="chips">' + s.players.map(function(p){
     return '<span class="chip'+(ids.indexOf(p.id)>=0?" done":"")+'">'+esc(p.name)+'</span>';
   }).join("") + '</div>';
+}
+
+// Combine two leaderboards by PLACEMENT, not raw score: Kahoot pays ~1000 a
+// question and this game pays 100 a vote, so summing raw points would let the
+// trivia decide everything. Finishing 1st in either game is worth N points.
+function combined(s){
+  var n = s.players.length;
+  var q = s.players.map(function(p){ return {id:p.id, name:p.name, pts:s.scores[p.id]||0}; })
+           .sort(function(a,b){ return b.pts-a.pts; });
+  var qRank = {}, kRank = {};
+  q.forEach(function(p,i){ qRank[p.id] = i+1; });
+  (s.kahoot||[]).forEach(function(id,i){ kRank[id] = i+1; });
+
+  return s.players.map(function(p){
+    var qr = qRank[p.id] || n, kr = kRank[p.id] || n;
+    return { id:p.id, name:p.name, pts:s.scores[p.id]||0, qr:qr, kr:kr,
+             total: (n - qr + 1) + (n - kr + 1) };
+  }).sort(function(a,b){
+    if (b.total !== a.total) return b.total - a.total;
+    return a.kr - b.kr;                       // tie goes to the better Kahoot finish
+  });
+}
+
+// Host-only: tap names in Kahoot finishing order, 1st first.
+function kahootEntry(s){
+  var chosen = entryOrder.slice();
+  var remaining = s.players.filter(function(p){ return chosen.indexOf(p.id) < 0; });
+  var nameOf = function(id){
+    for (var i=0;i<s.players.length;i++) if (s.players[i].id===id) return s.players[i].name;
+    return "?"; };
+  return '<div class="panel"><div class="eyebrow">Kahoot finishing order</div>'
+    + '<div class="note">Tap names in the order they finished the Kahoot &mdash; winner first. '
+    + chosen.length+' of '+s.players.length+' placed.</div>'
+    + '<div class="stack">' + chosen.map(function(id,i){
+        return '<div class="row"><div class="who"><span class="pos">'+String(i+1).padStart(2,"0")
+          + '</span><span class="nm">'+esc(nameOf(id))+'</span></div></div>'; }).join("")
+    + '</div>'
+    + (remaining.length
+        ? '<div class="names">' + remaining.map(function(p){
+            return '<button data-place="'+p.id+'">'+esc(p.name)+'</button>'; }).join("") + '</div>'
+        : '')
+    + '<div class="names"><button data-entry="undo">Undo last</button>'
+    + '<button class="primary" data-entry="save">Save order</button></div></div>';
 }
 
 // The television. Never shows an input, never shows an unrevealed author,
@@ -223,13 +267,25 @@ function renderTV(s, total){
       + standings(board(), 1, null) + '</div>';
 
   if (s.phase === "final"){
-    var b = board(), locked = null, rest = [];
+    var hasK = (s.kahoot||[]).length > 0;
+    var b = hasK ? combined(s) : board(), locked = null, rest = [];
     for (var k=0;k<b.length;k++){
       if (!locked && /shuldman/i.test(b[k].name)) locked = b[k]; else rest.push(b[k]);
     }
+    var rows = '<div class="stack">'
+      + (locked ? '<div class="row locked"><div class="who"><span class="pos">01</span>'
+          + '<span class="nm">'+esc(locked.name)+'</span></div>'
+          + '<span class="pts">Waffle House</span></div>' : '')
+      + rest.map(function(p,ix){
+          return '<div class="row"><div class="who"><span class="pos">'
+            + String(ix+(locked?2:1)).padStart(2,"0")+'</span><span class="nm">'+esc(p.name)+'</span></div>'
+            + '<span class="pts">'+(hasK ? p.total + ' <span class="author">K'+p.kr+' &middot; Q'+p.qr+'</span>' : p.pts)
+            + '</span></div>'; }).join("")
+      + '</div>';
     return '<div class="panel"><div class="eyebrow">Final &middot; selection order</div>'
-      + '<div class="note">The order you pick your draft slot. Not the slot itself.</div>'
-      + standings(rest, locked?2:1, locked) + '</div>';
+      + '<div class="note">The order you pick your draft slot. Not the slot itself.'
+      + (hasK ? ' Kahoot placing plus this game, equally weighted.' : '') + '</div>'
+      + rows + '</div>';
   }
   return '<div class="panel"><div class="note">&hellip;</div></div>';
 }
@@ -241,6 +297,7 @@ function render(s){
     : s.phase === "final" ? "Final"
     : "Round " + (s.round+1) + " / " + s.totalRounds;
 
+  if (entryMode && s.phase === "final") return kahootEntry(s);
   if (TV) return renderTV(s, total);
 
   var seated = false;
@@ -311,6 +368,8 @@ function render(s){
     }
 
     // Final: Shuldman holds selection #1 by MAGA MARALAGO, everyone else fills 2 through 12.
+    var hasK = (s.kahoot||[]).length > 0;
+    if (hasK) board = combined(s);
     var locked = null, rest = [];
     for (var k=0;k<board.length;k++){
       if (!locked && /shuldman/i.test(board[k].name)) locked = board[k];
@@ -325,7 +384,9 @@ function render(s){
       + rest.map(function(p,ix){
           return '<div class="row"><div class="who"><span class="pos">'
             + String(ix + (locked?2:1)).padStart(2,"0")+'</span><span class="nm">'+esc(p.name)
-            + '</span></div><span class="pts">'+p.pts+'</span></div>';
+            + '</span></div><span class="pts">'
+            + (hasK ? p.total+' <span class="author">K'+p.kr+' &middot; Q'+p.qr+'</span>' : p.pts)
+            + '</span></div>';
         }).join("")
       + '</div></div>';
     return html;
@@ -342,6 +403,7 @@ function hostControls(s){
     : s.phase==="write"  ? b("vote","Open voting")
     : s.phase==="vote"   ? b("scores","Show results")
     : s.phase==="scores" ? b("next","Next round") + b("final","End &amp; final order")
+    : s.phase==="final"  ? b("kahoot", entryMode ? "Back to order" : "Enter Kahoot results")
     : "";
   // Reset stays reachable from every phase - a practice game has to be
   // clearable before the real one, and confirm() guards a misclick.
@@ -377,8 +439,8 @@ function tick(){
     // A player's in-progress typing must survive any re-render, so the
     // signature deliberately omits other people's submissions on a phone.
     var sig = TV
-      ? JSON.stringify([s.phase,s.round,s.submitted,s.voted,s.players.length,s.cards,s.scores])
-      : JSON.stringify([s.phase,s.round,s.players.length,s.you,picks,
+      ? JSON.stringify([s.phase,s.round,s.submitted,s.voted,s.players.length,s.cards,s.scores,s.kahoot])
+      : JSON.stringify([s.phase,s.round,s.players.length,s.you,picks,entryMode,entryOrder,s.kahoot,
                         s.phase==="vote" && !s.you.voted ? null : s.voted,
                         s.phase==="write" ? null : s.cards]);
 
@@ -399,9 +461,18 @@ function tick(){
 }
 
 document.addEventListener("click", function(e){
-  var t = e.target.closest("[data-name],[data-vote],[data-host],#send,#castvote");
+  var t = e.target.closest("[data-name],[data-vote],[data-host],[data-place],[data-entry],#send,#castvote");
   if (!t) return;
+
+  if (t.dataset.place){ entryOrder.push(t.dataset.place); last=""; return tick(); }
+  if (t.dataset.entry === "undo"){ entryOrder.pop(); last=""; return tick(); }
+  if (t.dataset.entry === "save"){
+    busy = true;
+    return api("/host", { key: HOSTKEY, action: "setkahoot", order: entryOrder }).then(function(){
+      entryMode = false; busy = false; last = ""; tick(); });
+  }
   if (t.dataset.name) return join(t.dataset.name);
+  if (t.dataset.host === "kahoot"){ entryMode = !entryMode; last=""; return tick(); }
   if (t.dataset.host){
     if (t.dataset.host === "reset" &&
         !confirm("Wipe the game? Clears every player and all scores.")) return;

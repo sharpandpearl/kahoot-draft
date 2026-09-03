@@ -17,6 +17,7 @@ const BLANK = {
   phase: "lobby",   // lobby | write | vote | scores | final
   round: 0,
   deadline: 0,      // epoch ms; answers close after this (+ grace)
+  kahoot: [],       // player ids in Kahoot finishing order, 1st first
   players: {},      // id -> {name, joined}
   answers: {},      // "r0" -> { playerId: text }
   votes: {},        // "r0" -> { voterId: [playerId, ...] }
@@ -104,6 +105,10 @@ export class Game {
       if (a === "final")  { this.s.phase = "final"; }
       if (a === "reset")  { this.s = structuredClone(BLANK); }
       if (a === "kick" && body.target) { delete this.s.players[body.target]; }
+      if (a === "setkahoot") {
+        // ids in finishing order; anything unknown is dropped
+        this.s.kahoot = (body.order || []).filter((x) => this.s.players[x]);
+      }
       await this.save();
       return json({ ok: true });
     }
@@ -123,6 +128,7 @@ export class Game {
         voted: Object.keys(votes),
         you: { answered: answers[id] !== undefined, voted: votes[id] !== undefined, text: answers[id] || "" },
         scores: this.scores(),
+        kahoot: this.s.kahoot,
         // ms left, resynced on every poll so client clock skew never matters
         remaining: this.s.phase === "write" ? Math.max(0, (this.s.deadline || 0) - Date.now()) : 0,
       };
