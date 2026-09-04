@@ -9,6 +9,10 @@ export const PROMPTS = [
   "Propose a backronym rule that would absolutely pass at this year's legislative session.",
   "JJ had 1876 points scored against him in 2025. Write his one-sentence eulogy.",
   "Predict the exact moment tonight's draft goes off the rails.",
+  "The trophy is called the Roof Condom. Pitch a better name and defend it in one line.",
+  "Write the backronym for a rule that bans whatever Jack did to the league this year.",
+  "Kofi has two titles in four years. Explain his method without using the word luck.",
+  "Name the 2026 Ibanez team before we know who it is. Be specific enough to hurt.",
 ];
 
 export const WRITE_MS = 30000;   // 30s to answer, enforced server-side
