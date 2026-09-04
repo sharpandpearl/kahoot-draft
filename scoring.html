@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>How The Draft Order Was Scored</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  @page { size: A4 portrait; margin: 15mm 15mm 13mm; }
+  :root{
+    --paper:#FFFFFF; --ink:#17191F; --muted:#5A6273; --faint:#8B93A3;
+    --amber:#9A6B08; --amber-tint:#FDF6E3;
+    --alert:#A8332A; --alert-tint:#FBEFEE;
+    --ok:#2F6B45; --ok-tint:#EDF5F0;
+    --rule:#DFDDD6; --panel:#F6F5F1;
+    --display:'Oswald','Arial Narrow',sans-serif;
+    --body:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+    --mono:'IBM Plex Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+       font-size:10.5pt;line-height:1.52;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  p{margin:0 0 9px}
+
+  .cover{border-bottom:3px solid var(--amber);padding-bottom:12px;margin-bottom:18px}
+  .kicker{font-family:var(--mono);font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;
+          color:var(--amber);font-weight:600}
+  h1{font-family:var(--display);font-weight:700;font-size:28pt;line-height:1.03;margin:6px 0 6px;
+     text-transform:uppercase;letter-spacing:.01em}
+  .sub{color:var(--muted);font-size:10.5pt;max-width:66ch}
+
+  h2{font-family:var(--display);font-weight:700;font-size:14pt;text-transform:uppercase;
+     letter-spacing:.04em;margin:22px 0 9px;padding-bottom:5px;border-bottom:1.5px solid var(--ink)}
+  h3{font-weight:600;font-size:10.5pt;margin:14px 0 5px}
+  .lede{font-size:11.5pt;line-height:1.45;color:var(--ink);max-width:64ch;margin-bottom:12px}
+
+  .rule-box{background:var(--panel);border-left:3px solid var(--ink);padding:13px 16px;margin:11px 0;
+            break-inside:avoid}
+  .rule-box .eq{font-family:var(--mono);font-weight:600;font-size:12pt;display:block;margin:7px 0 4px}
+  .good{border-left-color:var(--ok);background:var(--ok-tint)}
+  .good strong{color:var(--ok)}
+
+  table{width:100%;border-collapse:collapse;margin:9px 0;font-size:9.5pt}
+  th{text-align:left;font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;
+     color:var(--muted);font-weight:600;border-bottom:1.5px solid var(--ink);padding:5px 8px 5px 0}
+  td{padding:5px 8px 5px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  td.strong{font-family:var(--mono);font-weight:600;color:var(--amber);text-align:right}
+  tr.tie td{background:var(--amber-tint)}
+
+  .alert{border-left:3px solid var(--alert);background:var(--alert-tint);padding:11px 14px;
+         margin:11px 0;break-inside:avoid;font-size:9.5pt}
+  .alert strong{color:var(--alert)}
+
+  figure{margin:11px 0;break-inside:avoid;page-break-inside:avoid}
+  figure img{width:100%;border:1px solid var(--rule);display:block}
+  figure.tall img{width:auto;max-height:122mm;margin:0 auto;border:1px solid var(--rule)}
+  figcaption{font-family:var(--mono);font-size:8pt;color:var(--muted);margin-top:6px;line-height:1.45}
+  figcaption b{color:var(--ink);font-weight:600}
+
+  .page{page-break-before:always}
+  .note{color:var(--muted);font-size:9.5pt}
+  ul.tight{margin:6px 0 10px;padding-left:18px}
+  ul.tight li{margin-bottom:5px}
+  .foot{margin-top:16px;padding-top:8px;border-top:1px solid var(--rule);
+        font-family:var(--mono);font-size:8pt;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Lehigh 1-AA SigEp FFL &middot; 2026 Draft Order Challenge</div>
+  <h1>How The Draft<br>Order Was Scored</h1>
+  <div class="sub">The rule, the reasoning behind it, and the raw results it was applied to.
+    Everything here can be checked against the screenshots on pages 3 and 4.</div>
+</div>
+
+<p class="lede">Two games decided the order in which managers choose their draft slot. The scoring
+problem was that the two games produce numbers on wildly different scales, so the obvious approach
+&mdash; add up everyone's points &mdash; would have quietly handed the entire draft to one of them.</p>
+
+<h2>The rule</h2>
+
+<div class="rule-box">
+  <strong>Only your finishing place in each game counts. Your raw score does not.</strong>
+  <span class="eq">points = (number of players + 1) &minus; your place</span>
+  Nine managers played, so first place in a game is worth 9 points and last is worth 1.
+  Add your Kahoot points to your Quiplash points. Highest combined total picks earliest.
+  <strong>Ties break on the better Kahoot finish.</strong>
+</div>
+
+<h3>Worked example</h3>
+<p>Jack Meehan won the Kahoot, so 9 points. He came second in the Quiplash, so 8 points.
+Total 17, the highest of the night, so he picks first among those who played.</p>
+<p>Scott Pender won the Quiplash for 9 points but came third in the Kahoot for 7. Total 16.
+One point behind Jack despite winning a game outright &mdash; because Jack was near the top of both.</p>
+
+<h2>Why not simply add the scores</h2>
+
+<p>Kahoot awards roughly a thousand points per question and pays a speed bonus on every one.
+The Quiplash round awards a hundred points per vote received. The actual spreads on the night:</p>
+
+<table>
+  <tr><th>Game</th><th>Winner scored</th><th>Last scored</th><th>Spread</th></tr>
+  <tr><td>Kahoot</td><td class="n">15,035</td><td class="n">0</td><td class="n">15,035</td></tr>
+  <tr><td>Quiplash</td><td class="n">2,300</td><td class="n">800</td><td class="n">1,500</td></tr>
+</table>
+
+<p>Adding those together would make the Kahoot worth <strong>ten times</strong> the Quiplash round.
+The trivia would have decided the draft on its own and the second game would have been decoration
+&mdash; two dozen answers written and voted on, for nothing. Using places instead gives each game
+exactly the same influence: nine points to the winner of each, one to the last of each.</p>
+
+<h3>The other option, and why it was rejected</h3>
+<p>Normalising each game to a percentage of its winner's score sounds fairer, but it rewards the
+shape of a scoreline rather than performance. A runaway Kahoot winner would still swamp the field,
+and a game where everyone finished close together would count for almost nothing. Places are
+immune to that: they measure only who beat whom, which is the thing actually being contested.</p>
+
+<div class="rule-box good">
+  <strong>The property that matters.</strong> Under this rule, winning either game is worth the
+  same. There is no way to win the draft order by being enormously good at one game and poor at
+  the other &mdash; you have to be good at both, which is what happened. Jack placed 1st and 2nd.
+  Scott placed 3rd and 1st. Nobody else placed in the top three of both, and nobody else came close
+  to their totals.
+</div>
+
+<!-- ===================== PAGE 2 ===================== -->
+<div class="page">
+<h2>Why the middle five tied</h2>
+
+<p>Because a total is <span class="note" style="font-family:var(--mono);font-weight:600;color:var(--ink)">20
+&minus; (Kahoot place + Quiplash place)</span>, any two managers whose places add to the same number
+score the same. Five managers all added to twelve:</p>
+
+<table>
+  <tr><th>Manager</th><th>Kahoot</th><th>Quiplash</th><th>Places add to</th><th>Total</th></tr>
+  <tr class="tie"><td>Kofi White</td><td class="n">4th</td><td class="n">8th</td><td class="n">12</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Tony DiNardo</td><td class="n">5th</td><td class="n">7th</td><td class="n">12</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Megan McLoughlin</td><td class="n">6th</td><td class="n">6th</td><td class="n">12</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Michael Airosus</td><td class="n">7th</td><td class="n">5th</td><td class="n">12</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>JJ Woolley</td><td class="n">9th</td><td class="n">3rd</td><td class="n">12</td><td class="strong">8</td></tr>
+</table>
+
+<p>They are mirror images of one another &mdash; each strong in one game and weak in the other by
+precisely the offsetting amount. This is not a bug in the scoring; it is the scoring working. All
+five genuinely performed the same overall. With nine players there are only seventeen possible
+totals, so the middle of the table is crowded by design.</p>
+
+<h2>Why ties break on the Kahoot</h2>
+
+<p>The two games measure at very different resolutions. Kahoot scores are effectively continuous
+&mdash; 15,035 against 12,888 against 12,415, no two alike, because the speed bonus separates
+everyone to the millisecond. Quiplash scores move in blocks of 100 and produce frequent exact ties:
+two managers finished on 1,800 and two more on 800.</p>
+
+<p><strong>When two measurements disagree, the finer one settles it.</strong> That is the whole
+justification. The Kahoot can distinguish between any two players; the Quiplash often cannot.</p>
+
+<h3>Audit: the same rule, applied to the Quiplash ties</h3>
+
+<p>Jack Meehan and JJ Woolley both finished the Quiplash on 1,800 votes. Kofi White and Tim DeVaney
+both finished on 800. Applying the tie-break rule to those pairs:</p>
+
+<table>
+  <tr><th>Tied pair</th><th>Votes</th><th>Kahoot</th><th>Resolved as</th></tr>
+  <tr><td>Jack Meehan</td><td class="n">1,800</td><td class="n">1st</td><td>Quiplash 2nd</td></tr>
+  <tr><td>JJ Woolley</td><td class="n">1,800</td><td class="n">9th</td><td>Quiplash 3rd</td></tr>
+  <tr><td>Kofi White</td><td class="n">800</td><td class="n">4th</td><td>Quiplash 8th</td></tr>
+  <tr><td>Tim DeVaney</td><td class="n">800</td><td class="n">8th</td><td>Quiplash 9th</td></tr>
+</table>
+
+<div class="rule-box good">
+  <strong>This changes nothing.</strong> The tie-break rule produces exactly the placings the
+  result already shows. No position in the final order moves. The order stands on the rule, not
+  on chance.
+</div>
+
+<h2>Where this is weakest</h2>
+<p>Stated plainly, because a result that hides its own soft spots is not worth defending:</p>
+<ul class="tight">
+  <li><strong>Nine players, not twelve.</strong> Steven Erbrick and Joe Manganelli did not take
+      part, so slots 11 and 12 were never contested. Steven Shuldman did not play and did not need
+      to &mdash; MAGA MARALAGO awards the completed Waffle House challenge the first selection outright.</li>
+  <li><strong>Places are coarse.</strong> Winning the Quiplash by 500 votes counts the same as
+      winning it by 100. That is the deliberate cost of weighting both games equally.</li>
+  <li><strong>The ninth Kahoot entry.</strong> It is nicknamed &ldquo;Scott&rdquo;, scored zero, answered
+      nothing correctly and left two questions blank &mdash; while Scott Pender played as &ldquo;Scott 2&rdquo;
+      and finished third. That zero was attributed to JJ Woolley. If it was his, the table stands.
+      If he never joined the Kahoot, his ninth place is a placeholder rather than a measurement,
+      and he has a legitimate case for a rerun of that half.</li>
+</ul>
+</div>
+
+<!-- ===================== PAGE 3 ===================== -->
+<div class="page">
+<h2>The evidence</h2>
+
+<figure>
+  <img src="__IMG2__" alt="Kahoot final leaderboard">
+  <figcaption><b>Exhibit A &mdash; Kahoot final report.</b> Nine entries. Jacqui (Jack Meehan) 15,035;
+    Clitbutt (Clint Botway) 12,888; Scott 2 (Scott Pender) 12,415; Kofi 10,756; Big Ton (Tony DiNardo)
+    10,668; Meg (Megan McLoughlin) 10,638; Airosus 6,801; Vane (Tim DeVaney) 3,445; Scott 0.
+    Note the near-continuous spread &mdash; no two scores alike. This is the finer measurement, and
+    the reason it settles ties.</figcaption>
+</figure>
+
+<figure class="tall">
+  <img src="__IMG3__" alt="Quiplash standings before the Kahoot was entered">
+  <figcaption><b>Exhibit B &mdash; Quiplash standings, before the Kahoot result was entered.</b>
+    Scott Pender 2,300; Jack Meehan 1,800; JJ Woolley 1,800; Clint Botway 1,700; Michael Airosus
+    1,400; Megan McLoughlin 1,300; Tony DiNardo 1,100; Kofi White 800; Tim DeVaney 800. Scores move
+    in blocks of 100 and two pairs are exactly level &mdash; the coarser measurement.</figcaption>
+</figure>
+</div>
+
+<!-- ===================== PAGE 4 ===================== -->
+<div>
+<figure>
+  <img src="__IMG1__" alt="Final combined selection order">
+  <figcaption><b>Exhibit C &mdash; the combined result.</b> Each row carries its own working: the
+    total, then the Kahoot place and Quiplash place it was built from. Jack 17 (K1&middot;Q2),
+    Scott 16 (K3&middot;Q1), Clint 14 (K2&middot;Q4), then the five-way tie on 8 ordered by Kahoot
+    finish, then Tim on 3. Steven Shuldman does not appear because he did not join the game; his
+    first selection comes from MAGA MARALAGO, not from this contest.</figcaption>
+</figure>
+
+<h2>The order this produces</h2>
+<table>
+  <tr><th>Selects</th><th>Manager</th><th>Kahoot</th><th>Quiplash</th><th>Total</th></tr>
+  <tr><td class="n">01</td><td>Steven Shuldman</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="strong">MARALAGO</td></tr>
+  <tr><td class="n">02</td><td>Jack Meehan</td><td class="n">1st</td><td class="n">2nd</td><td class="strong">17</td></tr>
+  <tr><td class="n">03</td><td>Scott Pender</td><td class="n">3rd</td><td class="n">1st</td><td class="strong">16</td></tr>
+  <tr><td class="n">04</td><td>Clint Botway</td><td class="n">2nd</td><td class="n">4th</td><td class="strong">14</td></tr>
+  <tr class="tie"><td class="n">05</td><td>Kofi White</td><td class="n">4th</td><td class="n">8th</td><td class="strong">8</td></tr>
+  <tr class="tie"><td class="n">06</td><td>Tony DiNardo</td><td class="n">5th</td><td class="n">7th</td><td class="strong">8</td></tr>
+  <tr class="tie"><td class="n">07</td><td>Megan McLoughlin</td><td class="n">6th</td><td class="n">6th</td><td class="strong">8</td></tr>
+  <tr class="tie"><td class="n">08</td><td>Michael Airosus</td><td class="n">7th</td><td class="n">5th</td><td class="strong">8</td></tr>
+  <tr class="tie"><td class="n">09</td><td>JJ Woolley</td><td class="n">9th</td><td class="n">3rd</td><td class="strong">8</td></tr>
+  <tr><td class="n">10</td><td>Tim DeVaney</td><td class="n">8th</td><td class="n">9th</td><td class="strong">3</td></tr>
+  <tr><td class="n">11&ndash;12</td><td>Steven Erbrick, Joe Manganelli</td><td class="n">&mdash;</td><td class="n">&mdash;</td><td class="n">did not play</td></tr>
+</table>
+
+<p class="note">This is the order in which managers <strong>choose</strong> a draft slot, not the slot
+itself. Selecting first is not automatically the best outcome: a manager carrying two keepers at
+first and second round cost gains little from the 1.01 and may prefer a middle slot with better
+snake position.</p>
+
+<div class="foot">
+  Lehigh 1-AA SigEp Fantasy Football B League &middot; 3 September 2026 &middot;
+  scoring code and question bank: github.com/sharpandpearl/kahoot-draft
+</div>
+</div>
+
+</body>
+</html>

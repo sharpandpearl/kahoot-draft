@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>2026 Draft Order Result</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  @page { size: A4 portrait; margin: 15mm 15mm 13mm; }
+  :root{
+    --paper:#FFFFFF; --ink:#17191F; --muted:#5A6273; --faint:#8B93A3;
+    --amber:#9A6B08; --amber-tint:#FDF6E3;
+    --alert:#A8332A; --alert-tint:#FBEFEE;
+    --rule:#DFDDD6; --panel:#F6F5F1;
+    --display:'Oswald','Arial Narrow',sans-serif;
+    --body:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+    --mono:'IBM Plex Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+       font-size:10.5pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .cover{border-bottom:3px solid var(--amber);padding-bottom:12px;margin-bottom:16px}
+  .kicker{font-family:var(--mono);font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;
+          color:var(--amber);font-weight:600}
+  h1{font-family:var(--display);font-weight:700;font-size:29pt;line-height:1.02;margin:6px 0 5px;
+     text-transform:uppercase;letter-spacing:.01em}
+  .sub{color:var(--muted);font-size:10.5pt;max-width:66ch}
+
+  h2{font-family:var(--display);font-weight:700;font-size:14pt;text-transform:uppercase;
+     letter-spacing:.04em;margin:22px 0 8px;padding-bottom:5px;border-bottom:1.5px solid var(--ink)}
+
+  /* ---- the order itself, the hero of the page ---- */
+  .order{margin:0;padding:0;list-style:none}
+  .order li{display:flex;align-items:baseline;gap:12px;padding:8px 12px;
+            border-bottom:1px solid var(--rule);break-inside:avoid}
+  .order li:nth-child(odd){background:var(--panel)}
+  .order .pos{font-family:var(--mono);font-weight:600;font-size:12pt;color:var(--muted);
+              min-width:30px;font-variant-numeric:tabular-nums}
+  .order .nm{font-family:var(--display);font-weight:500;font-size:15pt;flex:1;letter-spacing:.01em}
+  .order .tot{font-family:var(--mono);font-weight:600;font-size:13pt;color:var(--amber);
+              font-variant-numeric:tabular-nums}
+  .order .parts{font-family:var(--mono);font-size:8.5pt;color:var(--faint);min-width:64px;text-align:right}
+  .order li.locked{background:var(--amber-tint);border-left:3px solid var(--amber)}
+  .order li.locked .tot{font-size:9.5pt}
+  .order li.vacant{opacity:.6}
+  .order li.vacant .nm{font-family:var(--body);font-size:11pt;font-style:italic;color:var(--muted)}
+
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:9.5pt}
+  th{text-align:left;font-family:var(--mono);font-size:7.5pt;letter-spacing:.12em;text-transform:uppercase;
+     color:var(--muted);font-weight:600;border-bottom:1.5px solid var(--ink);padding:5px 8px 5px 0}
+  td{padding:5px 8px 5px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  td.strong{font-family:var(--mono);font-weight:600;color:var(--amber);text-align:right}
+  tr.tie td{background:var(--amber-tint)}
+
+  .formula{background:var(--panel);border-left:3px solid var(--ink);padding:11px 14px;margin:10px 0;
+           font-size:10pt;break-inside:avoid}
+  .formula code{font-family:var(--mono);font-weight:600;font-size:10.5pt}
+
+  .alert{border-left:3px solid var(--alert);background:var(--alert-tint);padding:10px 13px;
+         margin:10px 0;break-inside:avoid;font-size:9.5pt}
+  .alert strong{color:var(--alert)}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .note{color:var(--muted);font-size:9.5pt}
+  .foot{margin-top:16px;padding-top:8px;border-top:1px solid var(--rule);
+        font-family:var(--mono);font-size:8pt;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Lehigh 1-AA SigEp FFL &middot; 3 September 2026</div>
+  <h1>2026 Draft Order<br>Challenge &mdash; Result</h1>
+  <div class="sub">This is the order in which managers <strong>choose</strong> their draft slot &mdash;
+    not the slot itself. Two games, each weighted equally. Full working shown below so nobody
+    has to take anyone's word for it.</div>
+</div>
+
+<h2>Selection order</h2>
+<ol class="order">
+  <li class="locked"><span class="pos">01</span><span class="nm">Steven Shuldman</span>
+      <span class="parts">MARALAGO</span><span class="tot">Waffle House</span></li>
+  <li><span class="pos">02</span><span class="nm">Jack Meehan</span>
+      <span class="parts">K1 &middot; Q2</span><span class="tot">17</span></li>
+  <li><span class="pos">03</span><span class="nm">Scott Pender</span>
+      <span class="parts">K3 &middot; Q1</span><span class="tot">16</span></li>
+  <li><span class="pos">04</span><span class="nm">Clint Botway</span>
+      <span class="parts">K2 &middot; Q4</span><span class="tot">14</span></li>
+  <li><span class="pos">05</span><span class="nm">Kofi White</span>
+      <span class="parts">K4 &middot; Q8</span><span class="tot">8</span></li>
+  <li><span class="pos">06</span><span class="nm">Tony DiNardo</span>
+      <span class="parts">K5 &middot; Q7</span><span class="tot">8</span></li>
+  <li><span class="pos">07</span><span class="nm">Megan McLoughlin</span>
+      <span class="parts">K6 &middot; Q6</span><span class="tot">8</span></li>
+  <li><span class="pos">08</span><span class="nm">Michael Airosus</span>
+      <span class="parts">K7 &middot; Q5</span><span class="tot">8</span></li>
+  <li><span class="pos">09</span><span class="nm">JJ Woolley</span>
+      <span class="parts">K9 &middot; Q3</span><span class="tot">8</span></li>
+  <li><span class="pos">10</span><span class="nm">Tim DeVaney</span>
+      <span class="parts">K8 &middot; Q9</span><span class="tot">3</span></li>
+  <li class="vacant"><span class="pos">11</span><span class="nm">unassigned &mdash; did not play</span>
+      <span class="parts"></span><span class="tot"></span></li>
+  <li class="vacant"><span class="pos">12</span><span class="nm">unassigned &mdash; did not play</span>
+      <span class="parts"></span><span class="tot"></span></li>
+</ol>
+<p class="note">Steven Erbrick and Joe Manganelli did not take part. Slots 11 and 12 are theirs to
+  settle between them.</p>
+
+<h2>How the number was reached</h2>
+
+<div class="formula">
+  Nine managers played, so <strong>finishing first in a game is worth 9 points and finishing
+  ninth is worth 1</strong>. In other words <code>points = 10 &minus; your place</code>. Add your
+  Kahoot points to your Quiplash points. Highest total picks earliest.
+</div>
+
+<p class="note">Raw scores are deliberately <em>not</em> added together. Kahoot pays around a thousand
+  points per question and Quiplash pays a hundred per vote, so summing them would let the trivia
+  decide the whole draft and make the second game decorative. Using places gives both games
+  identical weight.</p>
+
+<table>
+  <tr><th>Manager</th><th>Kahoot place</th><th>pts</th><th>Quiplash place</th><th>pts</th><th>Total</th></tr>
+  <tr><td>Jack Meehan</td><td class="n">1st</td><td class="n">9</td><td class="n">2nd</td><td class="n">8</td><td class="strong">17</td></tr>
+  <tr><td>Scott Pender</td><td class="n">3rd</td><td class="n">7</td><td class="n">1st</td><td class="n">9</td><td class="strong">16</td></tr>
+  <tr><td>Clint Botway</td><td class="n">2nd</td><td class="n">8</td><td class="n">4th</td><td class="n">6</td><td class="strong">14</td></tr>
+  <tr class="tie"><td>Kofi White</td><td class="n">4th</td><td class="n">6</td><td class="n">8th</td><td class="n">2</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Tony DiNardo</td><td class="n">5th</td><td class="n">5</td><td class="n">7th</td><td class="n">3</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Megan McLoughlin</td><td class="n">6th</td><td class="n">4</td><td class="n">6th</td><td class="n">4</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>Michael Airosus</td><td class="n">7th</td><td class="n">3</td><td class="n">5th</td><td class="n">5</td><td class="strong">8</td></tr>
+  <tr class="tie"><td>JJ Woolley</td><td class="n">9th</td><td class="n">1</td><td class="n">3rd</td><td class="n">7</td><td class="strong">8</td></tr>
+  <tr><td>Tim DeVaney</td><td class="n">8th</td><td class="n">2</td><td class="n">9th</td><td class="n">1</td><td class="strong">3</td></tr>
+</table>
+
+<div class="formula">
+  <strong>Why the middle bunched up.</strong> A total is <code>20 &minus; (Kahoot place + Quiplash place)</code>,
+  so anyone whose two places add to the same number scores the same. Kofi 4+8, Tony 5+7, Megan 6+6,
+  Airosus 7+5 and JJ 9+3 all add to twelve. Five mirror images of one another: strong in one game,
+  weak in the other, cancelling exactly.
+</div>
+
+<p class="note"><strong>Five managers tied on 8.</strong> The tie-break is the better Kahoot finish,
+  which is why the shaded block runs Kofi, Tony, Megan, Airosus, JJ &mdash; their Kahoot places were
+  4th, 5th, 6th, 7th and 9th. Jack and Scott pulled clear by placing top three in <em>both</em> games;
+  everyone in the tie was strong in one and weak in the other.</p>
+
+<h2>Source results</h2>
+<div class="cols">
+  <div>
+    <table>
+      <tr><th>Kahoot</th><th>Nickname</th><th>Score</th></tr>
+      <tr><td class="n">1</td><td>Jacqui</td><td class="n">15,035</td></tr>
+      <tr><td class="n">2</td><td>Clitbutt</td><td class="n">12,888</td></tr>
+      <tr><td class="n">3</td><td>Scott 2</td><td class="n">12,415</td></tr>
+      <tr><td class="n">4</td><td>Kofi</td><td class="n">10,756</td></tr>
+      <tr><td class="n">5</td><td>Big Ton</td><td class="n">10,668</td></tr>
+      <tr><td class="n">6</td><td>Meg</td><td class="n">10,638</td></tr>
+      <tr><td class="n">7</td><td>Airosus</td><td class="n">6,801</td></tr>
+      <tr><td class="n">8</td><td>Vane</td><td class="n">3,445</td></tr>
+      <tr><td class="n">9</td><td>Scott</td><td class="n">0</td></tr>
+    </table>
+  </div>
+  <div>
+    <table>
+      <tr><th>Quiplash</th><th>Manager</th><th>Votes</th></tr>
+      <tr><td class="n">1</td><td>Scott Pender</td><td class="n">2,300</td></tr>
+      <tr class="tie"><td class="n">2</td><td>Jack Meehan</td><td class="n">1,800</td></tr>
+      <tr class="tie"><td class="n">3</td><td>JJ Woolley</td><td class="n">1,800</td></tr>
+      <tr><td class="n">4</td><td>Clint Botway</td><td class="n">1,700</td></tr>
+      <tr><td class="n">5</td><td>Michael Airosus</td><td class="n">1,400</td></tr>
+      <tr><td class="n">6</td><td>Megan McLoughlin</td><td class="n">1,300</td></tr>
+      <tr><td class="n">7</td><td>Tony DiNardo</td><td class="n">1,100</td></tr>
+      <tr class="tie"><td class="n">8</td><td>Kofi White</td><td class="n">800</td></tr>
+      <tr class="tie"><td class="n">9</td><td>Tim DeVaney</td><td class="n">800</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="alert">
+  <strong>Two Quiplash ties were broken arbitrarily.</strong> Jack Meehan and JJ Woolley both
+  finished on 1,800 votes; Kofi White and Tim DeVaney both finished on 800. The app ranked each
+  pair by the order they joined the game, which is not a tie-break so much as an accident of who
+  tapped their name first. It matters: had JJ taken 2nd on that 1,800, he would score 9 instead of
+  8 and sit 4th outright, clear of the five-way tie, with Jack dropping to 16 and level with Scott.
+</div>
+
+<div class="alert">
+  <strong>One Kahoot entry worth flagging.</strong> The 9th-place Kahoot entry is nicknamed &ldquo;Scott&rdquo;
+  and scored zero, with no correct answers and two questions unanswered &mdash; while Scott Pender
+  played as &ldquo;Scott 2&rdquo; and finished 3rd. That zero was assigned to JJ Woolley. If it was in
+  fact his, the table stands. If JJ never joined the Kahoot, his 9th place is a placeholder rather
+  than a result, and moving him up even one place would lift him above others in the tie. Worth
+  settling before anyone picks.
+</div>
+
+<h2>Why Shuldman picks first</h2>
+<p class="note">Steven Shuldman did not play either game and did not need to. Under <strong>MAGA
+  MARALAGO</strong>, an Ibanez who completes the Waffle House challenge &mdash; twenty-four continuous
+  hours, one hour off the clock per breakfast item &mdash; earns the first selection of the following
+  draft outright. He completed it. The challenge above decided selections two through twelve only.</p>
+<p class="note">The challenge itself was proposed by the reigning champion under <strong>MAD DIC
+  DOC</strong> and was not overruled within forty-eight hours, so it stood without a vote.</p>
+
+<div class="foot">
+  Lehigh 1-AA SigEp Fantasy Football B League &middot; generated 3 September 2026 &middot;
+  source and question bank: github.com/sharpandpearl/kahoot-draft
+</div>
+
+</body>
+</html>
