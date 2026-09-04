@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Draft Night Run of Show</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  @page { size: A4 portrait; margin: 16mm 15mm 14mm; }
+  :root{
+    --paper:#FFFFFF; --ink:#17191F; --muted:#5A6273; --faint:#8B93A3;
+    --amber:#9A6B08;            /* darkened for ink on white */
+    --amber-tint:#FDF6E3;
+    --alert:#A8332A; --alert-tint:#FBEFEE;
+    --rule:#DFDDD6; --panel:#F6F5F1;
+    --display:'Oswald','Arial Narrow',sans-serif;
+    --body:'IBM Plex Sans',-apple-system,Segoe UI,sans-serif;
+    --mono:'IBM Plex Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);
+       font-size:10.5pt;line-height:1.5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* ---- cover ---- */
+  .cover{border-bottom:3px solid var(--amber);padding-bottom:14px;margin-bottom:20px}
+  .kicker{font-family:var(--mono);font-size:8.5pt;letter-spacing:.18em;text-transform:uppercase;
+          color:var(--amber);font-weight:600}
+  h1{font-family:var(--display);font-weight:700;font-size:31pt;line-height:1.02;margin:6px 0 6px;
+     letter-spacing:.01em;text-transform:uppercase}
+  .sub{color:var(--muted);font-size:11pt;max-width:60ch}
+
+  h2{font-family:var(--display);font-weight:700;font-size:16pt;text-transform:uppercase;
+     letter-spacing:.04em;margin:0 0 3px;padding-top:2px}
+  .part{page-break-before:always;border-top:3px solid var(--ink);padding-top:12px;margin-top:0}
+  .part:first-of-type{page-break-before:avoid}
+  .parthead{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+            border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:14px}
+  .clockmark{font-family:var(--mono);font-size:9pt;color:var(--muted);white-space:nowrap}
+
+  h3{font-family:var(--body);font-weight:600;font-size:11pt;margin:16px 0 6px}
+
+  /* ---- the two voices of the document ---- */
+  .say{border-left:3px solid var(--amber);background:var(--amber-tint);
+       padding:11px 14px;margin:9px 0;break-inside:avoid}
+  .say p{margin:0 0 7px;font-size:11pt;line-height:1.45}
+  .say p:last-child{margin-bottom:0}
+  .say .tag{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;
+            color:var(--amber);font-weight:600;display:block;margin-bottom:5px}
+  .beat{color:var(--muted);font-style:italic}
+
+  ol.do{list-style:none;counter-reset:s;margin:8px 0;padding:0}
+  ol.do li{counter-increment:s;position:relative;padding:5px 0 5px 30px;break-inside:avoid;
+           border-bottom:1px solid var(--rule)}
+  ol.do li:last-child{border-bottom:none}
+  ol.do li::before{content:counter(s);position:absolute;left:0;top:5px;font-family:var(--mono);
+      font-size:8pt;font-weight:600;color:var(--paper);background:var(--ink);width:17px;height:17px;
+      border-radius:50%;text-align:center;line-height:17px}
+  kbd{font-family:var(--mono);font-size:9pt;font-weight:600;background:var(--panel);
+      border:1px solid var(--rule);border-radius:3px;padding:1px 5px;white-space:nowrap}
+  .url{font-family:var(--mono);font-size:8.5pt;color:var(--amber);word-break:break-all;font-weight:600}
+
+  .alert{border-left:3px solid var(--alert);background:var(--alert-tint);padding:10px 13px;
+         margin:10px 0;break-inside:avoid;font-size:10pt}
+  .alert strong{color:var(--alert)}
+
+  .loop{border:1.5px solid var(--ink);border-radius:5px;padding:13px 15px;margin:11px 0;break-inside:avoid}
+  .loop .tag{font-family:var(--mono);font-size:7.5pt;letter-spacing:.16em;text-transform:uppercase;
+             font-weight:600;display:block;margin-bottom:8px}
+
+  table{width:100%;border-collapse:collapse;margin:9px 0;font-size:9.5pt}
+  th{text-align:left;font-family:var(--mono);font-size:7.5pt;letter-spacing:.13em;text-transform:uppercase;
+     color:var(--muted);font-weight:600;border-bottom:1.5px solid var(--ink);padding:5px 8px 5px 0}
+  td{padding:6px 8px 6px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  td:first-child{font-family:var(--mono);font-weight:600;white-space:nowrap;width:1%}
+
+  .check{list-style:none;margin:8px 0;padding:0}
+  .check li{padding:5px 0 5px 26px;position:relative;border-bottom:1px solid var(--rule)}
+  .check li::before{content:"";position:absolute;left:0;top:8px;width:12px;height:12px;
+      border:1.5px solid var(--muted);border-radius:2px}
+  .note{color:var(--muted);font-size:9.5pt}
+  .foot{margin-top:18px;padding-top:8px;border-top:1px solid var(--rule);
+        font-family:var(--mono);font-size:8pt;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Lehigh 1-AA SigEp FFL &middot; 3 September 2026</div>
+  <h1>Draft Night<br>Run of Show</h1>
+  <div class="sub">Master of ceremonies script for Kofi. Amber blocks are lines to say out loud.
+    Numbered steps are things to click. Nothing in here is binding except the result.</div>
+</div>
+
+<table>
+  <tr><td>Part 1</td><td><strong>Kahoot</strong> &mdash; 20 questions, about 14 minutes</td></tr>
+  <tr><td>Part 2</td><td><strong>The app</strong> &mdash; four prompts, about 12 minutes</td></tr>
+  <tr><td>Part 3</td><td><strong>The reveal</strong> &mdash; combine both, about 3 minutes</td></tr>
+  <tr><td>Part 4</td><td><strong>Slot selection</strong> &mdash; Shuldman first, then 2 through 12</td></tr>
+</table>
+
+<h3>Set up before anyone joins</h3>
+<ul class="check">
+  <li>Laptop connected to the TV, screenshare live, video call up for the remote guys.</li>
+  <li>Kahoot open in one tab: <span class="url">create.kahoot.it/creator/5616a557-5f62-4b43-ac4a-159268045abd</span></li>
+  <li>The app open in a second tab: <span class="url">lehigh-1aa-quiplash.sharp-and-pearl.workers.dev/?tv&amp;host=roofcondom</span></li>
+  <li>Your own phone on the plain app URL, ready to join as a player.</li>
+  <li>Player link pasted into WhatsApp, not yet sent: <span class="url">lehigh-1aa-quiplash.sharp-and-pearl.workers.dev</span></li>
+  <li>A pool or hot tub is present. DROPIT (2024) is not a suggestion.</li>
+</ul>
+
+<div class="alert">
+  <strong>Do not show the app tab on the TV during the Kahoot.</strong> Flip to it only at Part 2.
+  Keep the Kahoot host screen up for Part 1 &mdash; it has the PIN and the answers on it.
+</div>
+
+<!-- ============================ PART 1 ============================ -->
+<div class="part">
+<div class="parthead"><h2>Part 1 &middot; The Kahoot</h2><span class="clockmark">9:30 &ndash; 9:45</span></div>
+
+<div class="say">
+  <span class="tag">Say &mdash; opening</span>
+  <p>Alright. Gentlemen, Megan. Welcome to the 2026 draft order challenge.</p>
+  <p>Under MAD DIC DOC, the reigning champion proposes the challenge. I am the reigning champion.
+     So this is the challenge. You had forty-eight hours to overrule me and nobody did.</p>
+  <p>Two games tonight. First a trivia round. Then a second game where you write your own answers
+     and we all vote on them. Where you finish in each one counts equally.</p>
+  <p>And what you are playing for is <em>not</em> your draft slot. It is the order in which you
+     <em>choose</em> your draft slot. Which matters, because if you are sitting on two first-round
+     keepers you do not want the 1.01, and you know who you are.</p>
+  <p><span class="beat">(Beat.)</span> Steve Shuldman does not have to play. Steve went to a Waffle House
+     for twenty-four hours. Steve picks first no matter what happens in the next half hour.
+     That is the system working as designed.</p>
+</div>
+
+<h3>Start the Kahoot</h3>
+<ol class="do">
+  <li>On the Kahoot tab, click <kbd>Start</kbd>, then choose <kbd>Classic mode</kbd> &mdash; individual players, not teams.</li>
+  <li><strong>Open game options and set two things.</strong> Turn <kbd>Answer streak bonus</kbd> <strong>off</strong>.
+      Turn <kbd>Show questions and answers on players' devices</kbd> <strong>on</strong>.</li>
+  <li>The game PIN appears. Read it out and put it in the WhatsApp thread for the remote guys.</li>
+  <li>Wait until all twelve names are in the lobby before you start.</li>
+</ol>
+
+<div class="alert">
+  <strong>The second setting is the important one.</strong> Without it, phones show only four coloured
+  shapes and the remote players are reading questions off a laggy screenshare &mdash; while Kahoot breaks
+  ties on answer speed. If someone says they cannot read the question, the gear icon at the
+  bottom right of the host screen toggles it mid-game.
+</div>
+
+<div class="say">
+  <span class="tag">Say &mdash; before you hit start</span>
+  <p>Everyone go to kahoot dot it and put in the PIN. <strong>Use your real name.</strong> I have to type
+     the finishing order into the second game afterwards, and I am not deciding which one of you
+     is Dick Dock Frequent Flyer.</p>
+  <p>Twenty questions. You get points for right answers and for answering fast, so ties get broken
+     by your thumbs. That is a feature. Take it up with the commissioner.</p>
+  <p>Some of this is football. Some of it is our own bylaws. If you have never read the bylaws,
+     this is the part of the evening where that becomes your problem.</p>
+</div>
+
+<h3>Callouts during the quiz</h3>
+<p class="note">Do not read these as written &mdash; they are prompts for when a question lands.</p>
+<table>
+  <tr><td>Warm-up</td><td>Nobody from out of state gets "Lewes" right. Enjoy this.</td></tr>
+  <tr><td>Aaron Donald</td><td>He unretired because the Rams traded for Myles Garrett. Twenty million for one year.</td></tr>
+  <tr><td>A.J. Brown</td><td>Let the Philly guys react. Then move on quickly, for their sake.</td></tr>
+  <tr><td>Kelce &amp; Swift</td><td>Adam Sandler officiated. Jason Kelce was best man. This is real.</td></tr>
+  <tr><td>T SWIFT</td><td>Tony's rule. Tactical Surrendered Waiver Impacts Future Tier. Died three to five.</td></tr>
+  <tr><td>Points against</td><td>JJ will say 1876. JJ is wrong. Megan had 1951 in 2021 and never mentions it.</td></tr>
+  <tr><td>Ibanez names</td><td>Read all four out loud. Syrup Gargler is the fake. The other three are real.</td></tr>
+  <tr><td>Kofi names</td><td>Instant Kofi is the fake. Everything else was genuinely proposed about me.</td></tr>
+</table>
+
+<div class="alert">
+  <strong>Before you close the Kahoot, screenshot the full leaderboard &mdash; all twelve, in order.</strong>
+  The podium only shows the top three. You need the whole list for Part 3, and if you lose it the
+  trivia round does not count.
+</div>
+</div>
+
+<!-- ============================ PART 2 ============================ -->
+<div class="part">
+<div class="parthead"><h2>Part 2 &middot; The app</h2><span class="clockmark">9:45 &ndash; 9:57</span></div>
+
+<ol class="do">
+  <li>Switch the TV to the app tab. It shows the join address in large type.</li>
+  <li>Send the plain URL to WhatsApp. Everyone opens it and taps their own name.</li>
+  <li>Join on your own phone too &mdash; the laptop is the screen, not a player.</li>
+  <li>When all twelve chips are showing, hit <kbd>Start round 1</kbd> in the bar at the bottom.</li>
+</ol>
+
+<div class="say">
+  <span class="tag">Say &mdash; explaining the format</span>
+  <p>Second game. Open the link on your phone and tap your name.</p>
+  <p>A prompt comes up on the TV. You get <strong>thirty seconds</strong> to type an answer.
+     Then everybody sees all twelve answers with no names on them, and you vote for your two favourites.</p>
+  <p>Every vote you get is a hundred points. You cannot vote for yourself &mdash; I had that
+     specifically disabled, because I know this league.</p>
+  <p>Funniest wins. Not truest. Although historically those have overlapped.</p>
+</div>
+
+<div class="loop">
+  <span class="tag">Repeat for each round</span>
+  <ol class="do">
+    <li>Prompt appears with a thirty-second clock. It turns red at ten seconds.</li>
+    <li>Anything typed when it hits zero submits automatically &mdash; nobody loses an answer to the buzzer.</li>
+    <li>Click <kbd>Open voting</kbd>. Answers appear anonymously; everyone picks two on their phone.</li>
+    <li>When the counter says everyone has voted, click <kbd>Show results</kbd> &mdash; authors and vote
+        counts revealed, standings updated.</li>
+    <li>Read the winner out loud with the author's name. That is the whole point of the game.</li>
+    <li>Click <kbd>Next round</kbd>.</li>
+  </ol>
+</div>
+
+<div class="say">
+  <span class="tag">Say &mdash; between rounds, as needed</span>
+  <p>Whoever wrote that, you are a sick individual and you are moving up the board.</p>
+  <p>Zero votes. Zero. That is going in the group chat.</p>
+  <p><span class="beat">(If a round dies flat.)</span> We are never speaking of that round again. Next.</p>
+</div>
+
+<div class="alert">
+  <strong>Four rounds is the plan; there are ten loaded.</strong> <kbd>End &amp; final order</kbd> works after
+  any round, so read the room. If it is flying, keep going. If people are drifting, end it and
+  move to the reveal &mdash; a dying game is worse than a short one.
+</div>
+</div>
+
+<!-- ============================ PART 3 ============================ -->
+<div class="part">
+<div class="parthead"><h2>Part 3 &middot; The reveal</h2><span class="clockmark">9:57 &ndash; 10:00</span></div>
+
+<ol class="do">
+  <li>Click <kbd>End &amp; final order</kbd>.</li>
+  <li>Click <kbd>Enter Kahoot results</kbd> in the host bar.</li>
+  <li>With your Kahoot screenshot open, tap the twelve names <strong>in the order they finished the
+      Kahoot, winner first</strong>. <kbd>Undo last</kbd> fixes a misclick.</li>
+  <li>Click <kbd>Save order</kbd>. The TV switches to the combined selection order.</li>
+</ol>
+
+<div class="say">
+  <span class="tag">Say &mdash; while you type the order in</span>
+  <p>Give me thirty seconds, I am entering the Kahoot results.</p>
+  <p>Here is the maths, so nobody accuses me of anything. Finishing first in a game is worth twelve
+     points, second is eleven, all the way down. You add your two finishes together. Both games
+     count exactly the same amount.</p>
+  <p>We are not adding the raw scores, because Kahoot hands out about a thousand points a question
+     and the second game hands out a hundred a vote. Add those together and the trivia decides
+     everything and the funny round is decoration. So it is placings.</p>
+</div>
+
+<div class="say">
+  <span class="tag">Say &mdash; the reveal</span>
+  <p>On the screen. Each line shows your total, then your Kahoot placing and your placing in
+     the second game, so you can check my working.</p>
+  <p>Steve Shuldman, selection number one. He ate his way out of a Waffle House and this is what
+     it bought him. Respect.</p>
+  <p><span class="beat">(Read from twelve upwards. Make them wait.)</span></p>
+  <p>And that is binding. Screenshot it.</p>
+</div>
+</div>
+
+<!-- ============================ PART 4 ============================ -->
+<div class="part">
+<div class="parthead"><h2>Part 4 &middot; Choosing slots</h2><span class="clockmark">10:00 onward</span></div>
+
+<div class="say">
+  <span class="tag">Say &mdash; setting up the selection</span>
+  <p>Now we go in that order and you each claim a draft slot. Not a pick &mdash; a <em>slot</em>.
+     One through twelve, first come first served.</p>
+  <p>Think about your keepers before you open your mouth. If you are keeping two guys at
+     first and second round cost, the 1.01 is worth almost nothing to you and a middle slot
+     with better snake position is the actual prize.</p>
+  <p>Steve, you are up. Take your time. You have earned exactly this much.</p>
+</div>
+
+<p class="note">Write each choice on the draft board as it is called. Once a slot is taken it is gone.</p>
+
+<h3>If something breaks</h3>
+<table>
+  <tr><td>Phone shows only shapes</td><td>Kahoot gear icon, bottom right of the host screen &rarr; turn on
+      show questions and answers on players' devices.</td></tr>
+  <tr><td>Someone drops out of the app</td><td>They reopen the link and tap their name again. The seat is
+      reclaimed by name and their score is intact.</td></tr>
+  <tr><td>Someone joined as the wrong person</td><td>Hit <kbd>Reset</kbd>, everyone rejoins. Faster than
+      arguing about it. Only do this before round one.</td></tr>
+  <tr><td>A phone is stuck on an old screen</td><td>Refresh the page. It polls every second and a half
+      and will catch up on its own.</td></tr>
+  <tr><td>Nothing is advancing</td><td>Nothing advances by itself except the thirty-second answer clock.
+      You drive every other step from the host bar.</td></tr>
+  <tr><td>You lost the Kahoot leaderboard</td><td>Skip Part 3 step 2. The app falls back to its own
+      scores alone. Say so out loud rather than quietly.</td></tr>
+</table>
+
+<div class="foot">
+  Host key: roofcondom &middot; Built 3 Sep 2026 &middot; Question bank and app source: github.com/sharpandpearl/kahoot-draft
+</div>
+</div>
+
+</body>
+</html>
