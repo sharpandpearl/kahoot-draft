@@ -98,61 +98,6 @@ questions:
       - answer: "The Golden Waffle"
 
   - category: league
-    question: "Under THIRD, what does the third place finisher actually receive?"
-    time: 15000
-    image_query: "box of glazed donuts"
-    choices:
-      - answer: "A box of donuts bought by the league winner"
-        correct: true
-      - answer: "Their buy-in returned"
-      - answer: "Double their money"
-      - answer: "Nothing at all"
-
-  - category: league
-    question: "What are the current league dues, set in 2024?"
-    time: 15000
-    image_query: "stack of us dollar bills cash"
-    choices:
-      - answer: "$205.80"
-        correct: true
-      - answer: "$200.00"
-      - answer: "$215.40"
-      - answer: "$250.00"
-
-  - category: league
-    question: "Only two voted YES on ESPNNOW, the push to abandon Sleeper. Who?"
-    time: 20000
-    image_query: "clown emoji face paint"
-    choices:
-      - answer: "Jack Meehan and Steve Shuldman"
-        correct: true
-      - answer: "Jack Meehan and Clint Botway"
-      - answer: "Steve Erbrick and Megan McLoughlin"
-      - answer: "Jack Meehan and Tony DiNardo"
-
-  - category: league
-    question: "TWELVE (2024) expanded the league by adding which two managers?"
-    time: 20000
-    image_query: "two empty stadium seats"
-    choices:
-      - answer: "Tony DiNardo and Joe Manganelli"
-        correct: true
-      - answer: "Tony DiNardo and Tim DeVaney"
-      - answer: "Joe Manganelli and Steve Erbrick"
-      - answer: "Michael Airosus and Scott Pender"
-
-  - category: league
-    question: "Kofi and Jack bet on Jerome Powell's 2024 rate call. What was the wager?"
-    time: 20000
-    image_query: "federal reserve building columns"
-    choices:
-      - answer: "A 6th and 9th round pick swap"
-        correct: true
-      - answer: "A 1st round pick swap"
-      - answer: "Double league dues"
-      - answer: "The loser does the Waffle House challenge"
-
-  - category: league
     question: "The league voted on JJ's 2025 team name. Which one actually won?"
     time: 20000
     image_query: "ballot box voting paper"
@@ -208,17 +153,6 @@ questions:
       - answer: "Poopy Pants"
 
   - category: league
-    question: "MARALAGO: Make A Really Awful Loser Attend Glorious what?"
-    time: 15000
-    image_query: "omelet and waffle breakfast"
-    choices:
-      - answer: "Omelets and Waffles"
-        correct: true
-      - answer: "Oatmeal and Waffles"
-      - answer: "Onion Rings and Waffles"
-      - answer: "Orange Juice and Waffles"
-
-  - category: league
     question: "Who proposed Dick Dock Frequent Flyer as JJ's 2024 loser team name?"
     time: 20000
     image_query: "airport departure board terminal"
@@ -253,17 +187,6 @@ questions:
       - answer: "His kids never seeing him play"
 
   - category: nfl
-    question: "What is Aaron Donald's 2026 deal with the Rams worth in base salary?"
-    time: 20000
-    image_query: "sports contract signing pen paper"
-    choices:
-      - answer: "1 year, $20 million"
-        correct: true
-      - answer: "1 year, $12 million"
-      - answer: "2 years, $45 million"
-      - answer: "1 year, $35 million"
-
-  - category: nfl
     question: "The Eagles traded A.J. Brown this offseason. To which team?"
     time: 20000
     image_query: "New England Patriots helmet"
@@ -284,17 +207,6 @@ questions:
       - answer: "Cleveland Browns"
       - answer: "New York Giants"
       - answer: "Indianapolis Colts"
-
-  - category: nfl
-    question: "Jaylen Waddle was traded out of Miami this offseason. To which team?"
-    time: 20000
-    image_query: "Denver Broncos mile high stadium"
-    choices:
-      - answer: "Denver Broncos"
-        correct: true
-      - answer: "Green Bay Packers"
-      - answer: "Los Angeles Chargers"
-      - answer: "Baltimore Ravens"
 
   - category: nfl
     question: "Who officiated Travis Kelce and Taylor Swift's wedding?"
@@ -318,18 +230,6 @@ questions:
       - answer: "A vineyard in Rhode Island"
       - answer: "Nashville's Ryman Auditorium"
 
-  - category: nfl
-    question: "The couple skipped bridesmaids and groomsmen. What was Jason Kelce's role?"
-    time: 20000
-    image_query: "two brothers suits formal wear"
-    choices:
-      - answer: "Best Man"
-        correct: true
-      - answer: "Officiant"
-      - answer: "Ring bearer"
-      - answer: "He gave the only toast"
-
-  # ─── FUN ESTIMATION (nobody has an edge here) ─────────────────────────────
   - category: estimation
     question: "Aaron Donald and Myles Garrett are now teammates. Combined listed weight?"
     time: 20000
@@ -363,37 +263,3 @@ questions:
       - answer: "Ban trading with the reigning champion"
       - answer: "Force the last place team to change their team name"
       - answer: "Add a second superflex slot"
-
-  - category: league
-    question: "Who put up the most points in a season in league history?"
-    time: 20000
-    image_query: "fireworks celebration night sky"
-    choices:
-      - answer: "Clint Botway - 1967 in 2021, and he finished 7th"
-        correct: true
-      - answer: "Steve Erbrick - 1949 in 2021"
-      - answer: "Joe Manganelli - 1976 in 2025"
-      - answer: "Michael Airosus - 1892 in 2022"
-
-  - category: league
-    question: "What is the best regular season record anyone has posted?"
-    time: 20000
-    image_query: "winning streak scoreboard lights"
-    choices:
-      - answer: "Steve Erbrick, 12-2 in 2021"
-        correct: true
-      - answer: "Tim DeVaney, 11-3 in 2024"
-      - answer: "Jack Meehan, 13-1 in 2022"
-      - answer: "Kofi White, 12-2 in 2023"
-
-  - category: league
-    question: "SLEEPER (2025) locks the league onto Sleeper for how many seasons?"
-    time: 15000
-    image_query: "smartphone app icons screen"
-    choices:
-      - answer: "Five, through 2029"
-        correct: true
-      - answer: "Three, through 2027"
-      - answer: "Ten, through 2034"
-      - answer: "Forever, with no escape clause"
-
