@@ -76,17 +76,6 @@ questions:
       - answer: "You pay double dues for a season"
 
   - category: league
-    question: "In the Waffle House challenge, eating one breakfast item shaves how much off the clock?"
-    time: 10000
-    image_query: "waffle breakfast diner plate"
-    choices:
-      - answer: "One hour"
-        correct: true
-      - answer: "Thirty minutes"
-      - answer: "Two hours"
-      - answer: "Fifteen minutes"
-
-  - category: league
     question: "What is the league championship trophy called?"
     time: 10000
     image_query: "championship trophy silver cup"
@@ -129,17 +118,6 @@ questions:
       - answer: "A head coach"
       - answer: "A second defense"
       - answer: "An individual defensive player"
-
-  - category: league
-    question: "Whose 2019 team was named Tomatoslap That Ass?"
-    time: 20000
-    image_query: "ripe tomatoes on vine"
-    choices:
-      - answer: "Michael Airosus"
-        correct: true
-      - answer: "Tim DeVaney"
-      - answer: "JJ Woolley"
-      - answer: "Clint Botway"
 
   - category: league
     question: "Which of these was NOT a real proposed team name for Kofi?"
@@ -198,17 +176,6 @@ questions:
       - answer: "Chicago Bears"
 
   - category: nfl
-    question: "The Cardinals released Kyler Murray. Where did he sign for 2026?"
-    time: 20000
-    image_query: "Minnesota Vikings stadium purple"
-    choices:
-      - answer: "Minnesota Vikings"
-        correct: true
-      - answer: "Cleveland Browns"
-      - answer: "New York Giants"
-      - answer: "Indianapolis Colts"
-
-  - category: nfl
     question: "Who officiated Travis Kelce and Taylor Swift's wedding?"
     time: 20000
     image_query: "wedding ceremony rings altar"
@@ -218,17 +185,6 @@ questions:
       - answer: "Andy Reid"
       - answer: "Jason Sudeikis"
       - answer: "Hugh Grant"
-
-  - category: nfl
-    question: "Where did Travis Kelce and Taylor Swift get married in July 2026?"
-    time: 20000
-    image_query: "Madison Square Garden arena New York"
-    choices:
-      - answer: "Madison Square Garden"
-        correct: true
-      - answer: "Arrowhead Stadium"
-      - answer: "A vineyard in Rhode Island"
-      - answer: "Nashville's Ryman Auditorium"
 
   - category: estimation
     question: "Aaron Donald and Myles Garrett are now teammates. Combined listed weight?"
@@ -241,18 +197,6 @@ questions:
       - answer: "601 lbs"
       - answer: "645 lbs"
 
-  - category: estimation
-    question: "How many career Pro Bowls do Donald and Garrett have between them?"
-    time: 20000
-    image_query: "pro bowl trophy award ceremony"
-    choices:
-      - answer: "17"
-        correct: true
-      - answer: "11"
-      - answer: "22"
-      - answer: "9"
-
-  # ─── MORE LEAGUE ──────────────────────────────────────────────────────────
   - category: league
     question: "Tony proposed a rule named after Travis Kelce's wife. What did T SWIFT do?"
     time: 20000
