@@ -1,0 +1,61 @@
+{
+ "created": 1767185172245,
+ "creators": [
+  "99564739591815168",
+  "737445658436464640"
+ ],
+ "draft_id": "1312073346476691456",
+ "draft_order": {
+  "1122670698276741120": 6,
+  "1122671059658014720": 12,
+  "457340072908288000": 9,
+  "458775190914985984": 2,
+  "737445658436464640": 3,
+  "737713977596989440": 4,
+  "737714305679679488": 10,
+  "737718908391395328": 7,
+  "737729144938471424": 8,
+  "737745549184401408": 11,
+  "737758922789765120": 1,
+  "99564739591815168": 5
+ },
+ "last_message_id": "1402057792998617088",
+ "last_message_time": 1788639136126,
+ "last_picked": 1788639134974,
+ "league_id": "1312073346468282368",
+ "metadata": {
+  "description": "",
+  "name": "Lehigh 1-AA SigEp Fantasy Football B League",
+  "scoring_type": "half_ppr",
+  "show_team_names": "0"
+ },
+ "season": "2026",
+ "season_type": "regular",
+ "settings": {
+  "alpha_sort": 0,
+  "autopause_enabled": 0,
+  "autopause_end_time": 840,
+  "autopause_start_time": 120,
+  "autostart": 0,
+  "cpu_autopick": 1,
+  "enforce_position_limits": 1,
+  "nomination_timer": 60,
+  "pick_timer": 60,
+  "player_type": 0,
+  "reversal_round": 0,
+  "rounds": 16,
+  "slots_bn": 7,
+  "slots_def": 1,
+  "slots_flex": 1,
+  "slots_k": 1,
+  "slots_qb": 1,
+  "slots_rb": 2,
+  "slots_te": 1,
+  "slots_wr": 2,
+  "teams": 12
+ },
+ "sport": "nfl",
+ "start_time": 1788631603658,
+ "status": "complete",
+ "type": "snake"
+}
