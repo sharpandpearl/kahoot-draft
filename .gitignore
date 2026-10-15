@@ -8,3 +8,8 @@ scoring.built.html
 
 # Your son's school calendar - a family document, and unrelated to this repo.
 mudo-verde/
+
+# Weekly awards: league members' real names attached to in-jokes. Kept local.
+awards-*.md
+*Awards*.docx
+scripts/make_awards_docx.py
